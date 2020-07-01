@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚拟机的搭建 | 银哥博客</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/blog/img/main.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <script charset="utf-8" src="/blog/js/main.js"></script>
+    <audio autoplay="" loop="" src="img/music.mp3"></audio>
+    <meta name="description" content="">
+    <link rel="preload" href="/blog/assets/css/0.styles.fa7169f5.css" as="style"><link rel="preload" href="/blog/assets/js/app.9a92af54.js" as="script"><link rel="preload" href="/blog/assets/js/2.55a7f47e.js" as="script"><link rel="preload" href="/blog/assets/js/13.ac0cfb84.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b1608.js"><link rel="prefetch" href="/blog/assets/js/11.5641bcd9.js"><link rel="prefetch" href="/blog/assets/js/12.8fa3563d.js"><link rel="prefetch" href="/blog/assets/js/14.26cc714a.js"><link rel="prefetch" href="/blog/assets/js/15.66ad0d4a.js"><link rel="prefetch" href="/blog/assets/js/16.73b2b8e6.js"><link rel="prefetch" href="/blog/assets/js/17.608890b7.js"><link rel="prefetch" href="/blog/assets/js/18.eefa5ec2.js"><link rel="prefetch" href="/blog/assets/js/19.b85b0f88.js"><link rel="prefetch" href="/blog/assets/js/20.fc777413.js"><link rel="prefetch" href="/blog/assets/js/21.00d49893.js"><link rel="prefetch" href="/blog/assets/js/22.e7c3c554.js"><link rel="prefetch" href="/blog/assets/js/23.e320e9ac.js"><link rel="prefetch" href="/blog/assets/js/24.defba0a8.js"><link rel="prefetch" href="/blog/assets/js/25.3000d134.js"><link rel="prefetch" href="/blog/assets/js/26.8e2735a0.js"><link rel="prefetch" href="/blog/assets/js/27.17d59509.js"><link rel="prefetch" href="/blog/assets/js/28.3031a0f1.js"><link rel="prefetch" href="/blog/assets/js/29.8e360f56.js"><link rel="prefetch" href="/blog/assets/js/3.7891670b.js"><link rel="prefetch" href="/blog/assets/js/30.79804f1f.js"><link rel="prefetch" href="/blog/assets/js/31.132b9930.js"><link rel="prefetch" href="/blog/assets/js/32.fd91aff9.js"><link rel="prefetch" href="/blog/assets/js/33.b27e4c27.js"><link rel="prefetch" href="/blog/assets/js/34.3d92c071.js"><link rel="prefetch" href="/blog/assets/js/4.5c24690b.js"><link rel="prefetch" href="/blog/assets/js/5.bcea38fb.js"><link rel="prefetch" href="/blog/assets/js/6.967b8d2e.js"><link rel="prefetch" href="/blog/assets/js/7.7483e399.js"><link rel="prefetch" href="/blog/assets/js/8.2b3dd0dc.js"><link rel="prefetch" href="/blog/assets/js/9.872f0352.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.fa7169f5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">银哥博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  菜鸟教程
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识宝典" class="dropdown-title"><span class="title">知识宝典</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/baodian/zero/" class="nav-link">
+  英语宝库
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/high/" class="nav-link router-link-active">
+  云应用系统开发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/java/" class="nav-link">
+  java语言
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/C/" class="nav-link">
+  物联网安全技术
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/home/" class="nav-link">
+  首页
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  菜鸟教程
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识宝典" class="dropdown-title"><span class="title">知识宝典</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/baodian/zero/" class="nav-link">
+  英语宝库
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/high/" class="nav-link router-link-active">
+  云应用系统开发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/java/" class="nav-link">
+  java语言
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/C/" class="nav-link">
+  物联网安全技术
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/home/" class="nav-link">
+  首页
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第1章 概述</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>第2章 VirtualBox 虚拟机</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/baodian/high/notes/bd2.html" aria-current="page" class="active sidebar-link">虚拟机的搭建</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第3章 云应用示例</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第4章 分布式版本控制系统 Git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第5章 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="虚拟机的搭建"><a href="#虚拟机的搭建" class="header-anchor">#</a> 虚拟机的搭建</h1> <p>Oracle VirtualBox（网址是 https://www.virtualbox.org/） 是一款知名的开源虚拟机软件，本书后续的实验都将在 Oracle VirtualBox 创建的 Ubuntu Server 虚拟机上完成。虚拟机上安装部分软件的步骤也将逐一介绍，注意它们具有依赖性，因此需要按顺序安装。</p> <p>VirtualBox 扩展功能的使用还可以参考“附录A - VirtualBox”。</p> <h3 id="_2-1-安装-oracle-virtualbox"><a href="#_2-1-安装-oracle-virtualbox" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-1-%E5%AE%89%E8%A3%85-oracle-virtualbox" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.1 安装 Oracle VirtualBox</h3> <p>Oracle VirtualBox 在 Windows 操作系统上的安装过程很简单。因为开启虚拟机将占用较多内存，推荐 Windows 宿主机器是64位操作系统，且内存至少 8GB 以上。</p> <p>安装步骤如下：</p> <ol><li><p>假设 6.0 系列发行版的最新版本是“6.0.8” ，下载 “Windows hosts” 和 “Extension Pack”（如下图）。读者看到的版本应该已经更新，请视情况调整。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox6_Downloads.png" alt="VirtualBox6_Downloads"></p> <p>图2.1.1 VirtualBox 6.0 下载网页</p> <p>下载完成后可见： <code>VirtualBox-6.0.8-130520-Win.exe</code> 和 <code>Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack</code> 共2个文件。 <img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox6_Downloaded_Files.png" alt="VirtualBox6_Downloaded_Files"></p> <p>图2.1.2 VirtualBox 6.0 的安装文件</p></li> <li><p>安装 VirtualBox 必须要有管理员权限。以默认的设置和安装路径，先安装 <code>VirtualBox-6.0.8-130520-Win.exe</code>。安装过程中会导致暂时的网络中断，且需要重启 Windows 宿主机。</p></li> <li><p>安装完成并重新启动宿主 Windows 计算机后，可以看到 <code>Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack</code> 的图标正常显示为绿色小盒子，双击即可安装此扩展包。如果碰到图标未能正常显示，也可以将它拖到 VirtualBox 在桌面的图标上来安装。</p></li></ol> <p>需要注意的是，Extension Pack 必须和 VirtualBox 安装相同版本，它包含了很多有用的功能增强，是必须安装的。</p> <p>本书附录 A 还有 VirtualBox 的进阶使用介绍，供读者参考。</p> <h3 id="_2-2-安装-ubuntu-server-虚拟机"><a href="#_2-2-安装-ubuntu-server-虚拟机" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-2-%E5%AE%89%E8%A3%85-ubuntu-server-%E8%99%9A%E6%8B%9F%E6%9C%BA" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.2 安装 Ubuntu Server 虚拟机</h3> <p>Oracle VirtualBox 安装完成后，我们在 VirtualBox 里创建一个64位 Linux 类型的虚拟机，取名为 “ubuntuvm1”，给它分配 2GB 内存和 80GB 硬盘存储空间。注意这里分配的 80G 硬盘存储空间只是设定了虚拟硬盘的上限，而它实际占用的磁盘空间是根据写入内容的多少相关，因此不必担心一开始它就占用 80G 的磁盘存储空间。相反的，如果我们在创建虚拟机时把硬盘存储空间分配小了，到后面不够用，则扩容会很麻烦，甚至可能不得不重新安装虚拟机。</p> <p>如下图所示创建虚拟机。输入虚拟机的名称（Name），这里是“ubuntuvm1”，注意选择正确的类型（Type）和版本（Version）。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox_ubuntuvm1_Settings_1.png" alt="VirtualBox_ubuntuvm1_Settings_1"></p> <p>图2.2.1 VirtualBox Ubuntu 虚拟机设置之通用</p> <p>到 Ubuntu Server 官方下载页面（网址是 https://www.ubuntu.com/download/server）下载安装光盘镜像文件。请选择下载标记为 LTS 的版本，它是长期支持（Long-Term Support）的版本。例如下面例子中下载的是 <code>ubuntu-18.04-live-server-amd64.iso</code>。另外请注意，此服务器版只有64位的发行版。</p> <p>在虚拟机 ubuntuvm1 的设置对话框里，将下载的发行版 ISO 文件装载到光盘驱动器里。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox_ubuntuvm1_Settings_2.png" alt="VirtualBox_ubuntuvm1_Settings_2"></p> <p>图2.2.2 VirtualBox Ubuntu 虚拟机设置之存储</p> <p>启动虚拟机，即可开始 Ubuntu Server 的安装。大多以默认的选项安装，即以默认的美国英语安装，记得勾选“OpenSSH Server”（默认是不安装），具体过程可以参考 Installation Ubuntu Server（网址是 https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server)，此处从略。</p> <blockquote><p><strong>注意：</strong> 若您在国内访问国外网站速度过慢的情况下，可以考虑在安装过程中将官方 Ubuntu 的源替换成阿里云的 Ubuntu 镜像，这样会快些。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox6_use_mirrors_aliyun_ubuntu.png" alt="img"></p></blockquote> <p>网络设置可以选择 “Bridged Adapter” ，即虚拟机的网卡桥接直连网络，这是最简单的方式。虚拟机启动完成后，登入虚拟机后用 <code>ip addr show</code>，也可以简写为<code>ip addr</code>， 或 <code>ifconfig</code> 命令来找到它的 IP 地址。例如，下图中可见，此虚拟机 ubuntuvm1 的 IPv4 地址是 192.168.1.7。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox_ubuntuvm1_IP.png" alt="VirtualBox_ubuntuvm1_IP"></p> <p>图2.2.3 VirtualBox Ubuntu 虚拟机的 IP 地址</p> <p>在虚拟机已经启动后，如果桥接模式下我们发现桥接的网络不对，可以在虚拟机的设置里更改，如下图：</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox6_ubuntuvm1_Settings_bridged_network.png" alt="VirtualBox6_ubuntuvm1_Settings_bridged_network"></p> <p>图2.2.4 VirtualBox Ubuntu 虚拟机的桥接网络设置</p> <p>更改成正确的桥接网络后，按“OK”按钮保存。我们还需要在虚拟机的命令行窗口中运行如下命令，重新启动网络让它生效。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> netplan apply
+</code></pre></div><p>之后再去查看它新的 IP 地址。</p> <p>为了方便使用，我们将通过专门的 SSH 客户端软件，例如 PuTTY（网址是 https://putty.org/）或 MobaXterm（网址是 <a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">https://mobaxterm.mobatek.net<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>）来连接到此虚拟机。其中前者功能相对简单快捷，后者功能丰富，其免费的 Home 版在功能上略有限制，但也足够个人一般使用。SSH 客户端的安装从略。</p> <p>如果我们选择用开源免费的 PuTTY 作为 SSH 客户端，请按下图设置连接到此虚拟机（指定虚拟机的 IP 地址，SSH 服务默认侦听的22端口）。可以取名为“ubuntuvm1”并保存配置，方便下一次快速载入。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/SSH_Client_PuTTY_Configuration.png" alt="SSH_Client_PuTTY_Configuration"></p> <p>图2.2.5 VirtualBox Ubuntu 虚拟机的 PuTTY 连接设置</p> <p>登入后，检查防火墙状态。默认情况下，Ubuntu Server 虚拟机 ubuntuvm1 的防火墙是关闭的（Status: inactive）。本虚拟机是测试环境，暂不考虑安全性，为避免网络连接被防火墙阻隔的问题，可以暂不开启防火墙。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># check firewall status.</span>
+<span class="token function">sudo</span> ufw status
+</code></pre></div><p>屏幕显示示例应该如下图。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox_ubuntuvm1_ufw_status.png" alt="ubuntuvm1_ufw_status"></p> <p>图2.2.6 VirtualBox Ubuntu 虚拟机的防火墙状态</p> <p>将系统更新到最新。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># update system to latest.</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> update -y
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade -y
+</code></pre></div><blockquote><p><strong>注意：</strong> apt 是继 apt-get 后的改进版命令行工具，它在2016年发布的 Ubuntu 16.04 中首次引入，日常使用上可以取代旧版的 apt-get 命令。也就是说，在 Ubuntu 16.04 和后续的 Ubuntu 操作系统中，apt-get 命令依然存在且可以使用，但在多数情况下，我们可以使用 apt 命令来取代旧版的 apt-get 命令。关于它们的区别，可以阅读这篇文章：</p> <ul><li>Difference Between apt and apt-get Explained https://itsfoss.com/apt-vs-apt-get-difference/</li></ul></blockquote> <p>下面安装 “VirtualBox Guest Additions CD”。先在虚拟机的窗口如下图放入光盘。</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/VirtualBox_Insert_Guest_Additions_CD.png" alt="VirtualBox_Insert_Guest_Additions_CD"></p> <p>图2.2.7 VirtualBox Ubuntu 虚拟机放入 Guest Additions 光盘镜像</p> <p>挂载光盘并安装。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># mount the CD-ROM.</span>
+<span class="token function">sudo</span> <span class="token function">mkdir</span> -p /mnt/cdrom
+<span class="token function">sudo</span> <span class="token function">mount</span> /dev/cdrom /mnt/cdrom
+
+<span class="token comment"># launch the installer.</span>
+<span class="token builtin class-name">cd</span> /mnt/cdrom
+<span class="token function">sudo</span> ./VBoxLinuxAddition.run
+
+<span class="token comment"># check the installed version.</span>
+<span class="token function">ls</span> /opt <span class="token operator">|</span> <span class="token function">grep</span> VBox
+</code></pre></div><p>安装完成后，在虚拟机设置里面将此光盘移除，可能需要重启虚拟机（reboot）。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># reboot the machine.</span>
+<span class="token function">sudo</span> <span class="token function">reboot</span>
+</code></pre></div><p>若实验完成后，需要关闭虚拟机，我们可以用如下任一命令：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># poweroff the machine.</span>
+<span class="token function">sudo</span> poweroff
+
+<span class="token comment"># shutdown the machine now.</span>
+<span class="token function">sudo</span> <span class="token function">shutdown</span> -h now
+</code></pre></div><h3 id="_2-3-安装-openjdk"><a href="#_2-3-安装-openjdk" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-3-%E5%AE%89%E8%A3%85-openjdk" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.3 安装 OpenJDK</h3> <p>以下内容是在 Ubuntu Server 虚拟机 ubuntuvm1 上安装免费开源的 OpenJDK （网址是 <a href="https://openjdk.java.net/" target="_blank" rel="noopener noreferrer">https://openjdk.java.net<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>）。当然，也可以选择 Oracle JDK （网址是 http://www.oracle.com/technetwork/java/javase/downloads/index.html）。</p> <p>关于安装 JDK (Java Development Kit，开发工具包) 的版本，我们这里建议安装 Java SE 8，其原因是：</p> <ul><li><p>Oracle Java SE 9 、10、12 是非长期支持版本，Java SE 8 因推出的时间久（2014年3月）而支持更为广泛，因此安装 JDK 8 是当前相对稳妥的选择。后续的长期支持版本（Long Term Support, LTS）是 JDK 11，在2018年9月26日发布，第三方软件在11上的支持还不够广泛。</p></li> <li><p>Oracle Java SE 11 是继 Java 8之后首个长期支持版本，也是 Java SE 的首个长期支持版本。根据官方支持路线图，Java 11 的高级支持将持续到2023年9月，扩展支持则会延续到2026年9月，也就是生命周期长达8年。非长期支持的版本例如 Java 9、10、12 仅提供半年的技术支持。见下图：</p> <p><img src="https://cloudappdev.netlify.app/book/img/ubuntu_vm/oracle_jdk_support_roadmap.png" alt="oracle_jdk_support_roadmap"></p> <p>图2.3.1 Oracle Java SE 技术支持路线图</p></li></ul> <p>Java SE 是否免费？这个问题有点复杂，接下来我们探究一下。</p> <p>现在常见的 OpenJDK 和 Oracle JDK 以及其他服务商提供的变种版本，它们各自的授权许可是什么，又都提供哪些服务和支持，让许多 Java 开发者理不清头绪。Oracle 在2018年7月份启用新的 Java SE 订阅模式，更是让许多开发者认为是不是 Java 从此要开始收费了？</p> <p>虽然 Java 11 LTS 已经发布，但从统计数据来看，至今（即本书写作时间，2019年）更多的开发者还停留在上一个 LTS 版本上，即 Java 8。关于开发者最为关注的 Java 8 的授权许可问题，官方文档给出了解答：</p> <blockquote><p>Oracle 将在2020年12月前为个人桌面用户继续提供 Oracle JDK 8 的公共更新。若是商业用途，则在2019年1月之后不会再有免费的商业版本更新。但是，自 Java SE 9 以后，Oracle 还提供了 OpenJDK 版本，可免费用于商业用途，并且还有其他服务商提供的免费 Open JDK 版本可供选择。</p></blockquote> <p>也就是说，商业用途如果在2019年1月之后想继续免费使用 Java 8，可以选择：</p> <ul><li>不再更新，继续无限期地使用旧版 Oracle JDK 8 。注意，这对于商业用途是存在安全隐患的；</li> <li>使用来自其他服务商的免费 Java SE 8 或 OpenJDK 8 二进制发行版。</li></ul> <p>再有，由于 Oracle 在2018年7月份改变了 Java SE 的商业支持模式，所以从 Java 11 开始，支持方式有所不同：</p> <ul><li>OpenJDK —— 使用 GPLv2 + CE 许可，可免费用于商业用途；</li> <li>Oracle JDK —— 使用付费商业许可，但个人和非商业使用免费。</li></ul> <p>总之，商业用途如果想要继续免费使用 Java 11 的，请选择 OpenJDK。</p> <p>Ubuntu 18.04 服务器操作系统如果更新到最新，已经自带了OpenJDK 11 的 JRE (Java Runtime Environment，Java 运行环境)，可以通过下面的命令进行检查：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ java -version
+openjdk version <span class="token string">&quot;11.0.3&quot;</span> <span class="token number">2019</span>-04-16
+OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">11.0</span>.3+7-Ubuntu-1ubuntu218.04.1<span class="token punctuation">)</span>
+OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">11.0</span>.3+7-Ubuntu-1ubuntu218.04.1, mixed mode, sharing<span class="token punctuation">)</span>
+
+bobyuan@ubuntuvm1:~$ <span class="token function">which</span> java
+/usr/bin/java
+
+bobyuan@ubuntuvm1:~$ readlink -f <span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> java<span class="token variable">)</span></span>
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+</code></pre></div><p>进一步的信息还有。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">apt</span> depends default-jdk
+default-jdk
+  Depends: default-jre <span class="token punctuation">(</span><span class="token operator">=</span> <span class="token number">2</span>:1.11-68ubuntu1~18.04.1<span class="token punctuation">)</span>
+  Depends: default-jdk-headless <span class="token punctuation">(</span><span class="token operator">=</span> <span class="token number">2</span>:1.11-68ubuntu1~18.04.1<span class="token punctuation">)</span>
+  Depends: openjdk-11-jdk
+
+bobyuan@ubuntuvm1:~$ <span class="token function">apt</span> list --installed <span class="token operator">|</span> <span class="token function">grep</span> jdk
+
+WARNING: <span class="token function">apt</span> does not have a stable CLI interface. Use with caution <span class="token keyword">in</span> scripts.
+
+openjdk-11-jre-headless/bionic-updates,bionic-security,now <span class="token number">11.0</span>.3+7-1ubuntu2~18.04.1 amd64 <span class="token punctuation">[</span>installed,automatic<span class="token punctuation">]</span>
+</code></pre></div><p>为了保证 Ubuntu 操作系统的稳定性，我们不卸载默认安装的 OpenJDK 11 JRE，只是并行安装额外的 OpenJDK 8，修改符号链接和环境变量指向我们想要使用的那个 OpenJDK 8 即可。</p> <p>如前所述，出于免费商业使用的考虑，推荐安装使用 OpenJDK 而非 Oracle JDK。在当前（2019年）JDK 8 的使用和支持更广泛，鉴于 JDK 11 新推出，部分应用程序的兼容性支持还不足的原因，我们将按如下方式安装 OpenJDK 8：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># update system to latest.</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> update -y
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade -y
+
+<span class="token comment"># install OpenJDK 8.</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jdk
+</code></pre></div><p>安装完成之后，我们需要设置它为默认的 JDK。先用下面命令进行查看：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># list the installed JDKs.</span>
+<span class="token function">sudo</span> update-java-alternatives --list
+</code></pre></div><p>屏幕输出示例如下。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">sudo</span> update-java-alternatives --list
+java-1.11.0-openjdk-amd64      <span class="token number">1111</span>       /usr/lib/jvm/java-1.11.0-openjdk-amd64
+java-1.8.0-openjdk-amd64       <span class="token number">1081</span>       /usr/lib/jvm/java-1.8.0-openjdk-amd64
+</code></pre></div><p>我们可以看到，第2个选项 <code>java-1.8.0-openjdk-amd64</code> 是我们想要设置为默认的选项。为了将 OpenJDK 8 设置为默认选项，可以用以下命令：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># set to use the specific JDK from the list.</span>
+<span class="token function">sudo</span> update-java-alternatives --set java-1.8.0-openjdk-amd64
+</code></pre></div><p>屏幕输出示例如下。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">sudo</span> update-java-alternatives --set java-1.8.0-openjdk-amd64
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jaotc
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jdeprscan
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jhsdb
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jimage
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jlink
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jmod
+update-alternatives: error: no alternatives <span class="token keyword">for</span> jshell
+update-alternatives: error: no alternatives <span class="token keyword">for</span> mozilla-javaplugin.so
+update-java-alternatives: plugin alternative does not exist: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/IcedTeaPlugin.so
+</code></pre></div><p>更改完成后，检查一下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ readlink -f <span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> java<span class="token variable">)</span></span>
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+
+bobyuan@ubuntuvm1:~$ java -version
+openjdk version <span class="token string">&quot;1.8.0_212&quot;</span>
+OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_212-8u212-b03-0ubuntu1.18.04.1-b03<span class="token punctuation">)</span>
+OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.212</span>-b03, mixed mode<span class="token punctuation">)</span>
+</code></pre></div><p>一切正常，符合预期。</p> <p>根据上面的屏幕输出信息，我们可以看到 OpenJDK 8 的实际安装路径是 <code>/usr/lib/jvm/java-8-openjdk-amd64</code>，于是我们用 root 用户修改适用于虚拟机系统全局的配置文件 <code>/etc/profile</code>，在文件末尾添加如下几行内容：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># added by bobyuan.</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-8-openjdk-amd64
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JRE_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-8-openjdk-amd64/jre
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+</code></pre></div><p>这将使得上面两个环境变量（<code>JAVA_HOME</code> 和 <code>JRE_HOME</code>）成为虚拟机 ubuntuvm1 的全局环境变量。</p> <p>重启虚拟机，让设置生效。最后，分别用普通用户和 root 用户都检查一下，屏幕输出示例如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$JAVA_HOME</span>
+/usr/lib/jvm/java-8-openjdk-amd64
+
+bobyuan@ubuntuvm1:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$JRE_HOME</span>
+/usr/lib/jvm/java-8-openjdk-amd64/jre
+
+bobyuan@ubuntuvm1:~$ <span class="token function">which</span> java
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java
+
+bobyuan@ubuntuvm1:~$ java -version
+openjdk version <span class="token string">&quot;1.8.0_212&quot;</span>
+OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_212-8u212-b03-0ubuntu1.18.04.1-b03<span class="token punctuation">)</span>
+OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.212</span>-b03, mixed mode<span class="token punctuation">)</span>
+
+bobyuan@ubuntuvm1:~$ <span class="token function">sudo</span> -i
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> bobyuan:
+
+root@ubuntuvm1:~<span class="token comment"># echo $JAVA_HOME</span>
+/usr/lib/jvm/java-8-openjdk-amd64
+
+root@ubuntuvm1:~<span class="token comment"># echo $JRE_HOME</span>
+/usr/lib/jvm/java-8-openjdk-amd64/jre
+
+root@ubuntuvm1:~<span class="token comment"># which java</span>
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java
+
+root@ubuntuvm1:~<span class="token comment"># java -version</span>
+openjdk version <span class="token string">&quot;1.8.0_212&quot;</span>
+OpenJDK Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_212-8u212-b03-0ubuntu1.18.04.1-b03<span class="token punctuation">)</span>
+OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.212</span>-b03, mixed mode<span class="token punctuation">)</span>
+</code></pre></div><p>输出符合预期，OpenJDK 8 安装完毕。</p> <h3 id="_2-4-安装-apache-maven"><a href="#_2-4-安装-apache-maven" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-4-%E5%AE%89%E8%A3%85-apache-maven" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.4 安装 Apache Maven</h3> <p>Apache Maven（网址是 http://maven.apache.org/）是一个开源项目，它是一个 Java 的构建工具。在虚拟机 ubuntuvm1 上安装仅需要一条命令：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># install apache-maven package.</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> maven
+</code></pre></div><p>安装完毕后，测试一下是否正常。例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">which</span> mvn
+/usr/bin/mvn
+
+bobyuan@ubuntuvm1:~$ mvn --version
+Apache Maven <span class="token number">3.6</span>.0
+Maven home: /usr/share/maven
+Java version: <span class="token number">1.8</span>.0_212, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: <span class="token string">&quot;linux&quot;</span>, version: <span class="token string">&quot;4.15.0-52-generic&quot;</span>, arch: <span class="token string">&quot;amd64&quot;</span>, family: <span class="token string">&quot;unix&quot;</span>
+</code></pre></div><p>至此，Apache Maven 已经安装完毕。根据上面的信息，我们可以看到 Maven 的实际安装路径是 <code>/usr/share/maven</code>。当前用户的 <code>~/.m2</code> 文件夹存放着当前用户的设置，还有本地的 jar 包库（repository）。</p> <p>以上是使用 <code>apt</code> 命令从 Ubuntu 发行版的软件仓库里安装，推荐用这种方式安装，最为简单。</p> <p>我们有可能会碰到这样一种情况，Maven 的最新版已经发布了一段时间，但还未加入到 Ubuntu 发行版的软件仓库里，导致用上面的方式安装的是旧版。在这种情况下，若希望安装 Maven 的最新版本，可以选择手动安装。</p> <p>手动安装的步骤也非常简单，请参考下面的步骤。或者参考官方的安装文档（网址是 http://maven.apache.org/install.html）。</p> <p>假设我们在 Maven 的官方网站看到最新版是 3.6.1，想选择手动安装这个最新版。我们到官方网站下载最新版的安装包 <code>apache-maven-3.6.1-bin.tar.gz</code> 到当前用户的 Home 文件夹中，想将它安装在 <code>/usr/local</code> 文件夹里。按以下步骤解包并创建符号链接。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># move to the target directory.</span>
+<span class="token builtin class-name">cd</span> /usr/local
+
+<span class="token comment"># extract the release package.</span>
+<span class="token function">sudo</span> <span class="token function">tar</span> zxf ~/apache-maven-3.6.1-bin.tar.gz
+
+<span class="token comment"># create symbolic link to the real installation.</span>
+<span class="token function">sudo</span> <span class="token function">ln</span> -s apache-maven-3.6.1 apache-maven
+</code></pre></div><p>完成后，用 <code>ls -la</code> 命令查看文件清单，我们可以看到类似这样的输出。它显示 <code>apache-maven</code> 符号链接指向真正的安装路径 <code>apache-maven-3.6.1</code>。后面我们将使用此符号链接来设置环境变量。之所以使用符号链接，其目的是，若后期我们升级 Maven 到其他的安装版，将仅需要修改此符号链接指向新的安装版路径即可。</p> <p><img src="https://cloudappdev.netlify.app/book/img/maven/usr_local_apache_maven.png" alt="usr_local_apache_maven"></p> <p>图2.4.1 列文件清单查看Maven的安装</p> <p>用 root 用户修改 <code>/etc/profile</code> 文件。如下例所示，添加了 <code>M2_HOME</code> 环境变量，并修改了环境变量 <code>PATH</code>，将 <code>M2_HOME/bin</code> 添加到 <code>PATH</code> 路径中。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># added by bobyuan.</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-8-openjdk-amd64
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JRE_HOME</span><span class="token operator">=</span>/usr/lib/jvm/java-8-openjdk-amd64/jre
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">M2_HOME</span><span class="token operator">=</span>/usr/local/apache-maven
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token variable">$M2_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+</code></pre></div><p>至此手动安装已经完毕。我们退出当前用户，重新登入后，检查一下。</p> <p>屏幕输出示例如下。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">which</span> mvn
+/usr/local/apache-maven/bin/mvn
+
+bobyuan@ubuntuvm1:~$ mvn --version
+Apache Maven <span class="token number">3.6</span>.1 <span class="token punctuation">(</span>d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555<span class="token punctuation">;</span> <span class="token number">2019</span>-04-04T19:00:29Z<span class="token punctuation">)</span>
+Maven home: /usr/local/apache-maven
+Java version: <span class="token number">1.8</span>.0_212, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: <span class="token string">&quot;linux&quot;</span>, version: <span class="token string">&quot;4.15.0-52-generic&quot;</span>, arch: <span class="token string">&quot;amd64&quot;</span>, family: <span class="token string">&quot;unix&quot;</span>
+</code></pre></div><p>可以看到，它显示的路径和版本，都符合我们的预期。</p> <p>Maven 的基本使用请参考官方用户手册文档（网址是 http://maven.apache.org/users/index.html)。 另外，还有多本 Maven 的相关书籍，例如《Maven 实战》，《Maven 应用实战》等。</p> <h3 id="_2-5-安装-jenkins"><a href="#_2-5-安装-jenkins" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-5-%E5%AE%89%E8%A3%85-jenkins" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.5 安装 Jenkins</h3> <p>Jenkins（网址是 https://jenkins.io/) 是一个开源项目，它是一个基于 Java 的持续集成系统。我们可以在 Jenkins 上配置持续集成的任务，让机器自动完成构建（build），集中展示集成中存在的错误，提供详细的日志文件，提醒功能，以及用图表的形式展示项目构建的趋势和稳定性。</p> <p>在 Ubuntu 上安装 Jenkins，请参考官方安装文档：</p> <p>https://jenkins.io/doc/book/installing/#debian-ubuntu</p> <p>下面的步骤选择用 <code>apt-get</code> 方式来安装，具体命令如下。如果网络访问较慢，请耐心等待。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">wget</span> -q -O - https://pkg.jenkins.io/debian/jenkins.io.key <span class="token operator">|</span> <span class="token function">sudo</span> apt-key <span class="token function">add</span> -
+
+<span class="token function">sudo</span> <span class="token function">sh</span> -c <span class="token string">'echo deb http://pkg.jenkins.io/debian-stable binary/ &gt; /etc/apt/sources.list.d/jenkins.list'</span>
+
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> jenkins
+</code></pre></div><p>安装完成后，它会自动启动 Jenkins 服务。我们看一下它的状态，从屏幕输出可以看到，它当前正常运行。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">sudo</span> systemctl status jenkins
+● jenkins.service - LSB: Start Jenkins at boot <span class="token function">time</span>
+   Loaded: loaded <span class="token punctuation">(</span>/etc/init.d/jenkins<span class="token punctuation">;</span> generated<span class="token punctuation">)</span>
+   Active: active <span class="token punctuation">(</span>exited<span class="token punctuation">)</span> since Wed <span class="token number">2018</span>-07-11 09:09:56 UTC<span class="token punctuation">;</span> 50s ago
+     Docs: man:systemd-sysv-generator<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+    Tasks: <span class="token number">0</span> <span class="token punctuation">(</span>limit: <span class="token number">2322</span><span class="token punctuation">)</span>
+   CGroup: /system.slice/jenkins.service
+
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting LSB: Start Jenkins at boot time<span class="token punctuation">..</span>.
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 jenkins<span class="token punctuation">[</span><span class="token number">5787</span><span class="token punctuation">]</span>: Correct java version found
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 jenkins<span class="token punctuation">[</span><span class="token number">5787</span><span class="token punctuation">]</span>:  * Starting Jenkins Automation Server jenkins
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 su<span class="token punctuation">[</span><span class="token number">5833</span><span class="token punctuation">]</span>: Successful <span class="token function">su</span> <span class="token keyword">for</span> jenkins by root
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 su<span class="token punctuation">[</span><span class="token number">5833</span><span class="token punctuation">]</span>: + ??? root:jenkins
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 su<span class="token punctuation">[</span><span class="token number">5833</span><span class="token punctuation">]</span>: pam_unix<span class="token punctuation">(</span>su:session<span class="token punctuation">)</span>: session opened <span class="token keyword">for</span> user jenkins by <span class="token punctuation">(</span>uid<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+Jul <span class="token number">11</span> 09:09:55 ubuntuvm1 su<span class="token punctuation">[</span><span class="token number">5833</span><span class="token punctuation">]</span>: pam_unix<span class="token punctuation">(</span>su:session<span class="token punctuation">)</span>: session closed <span class="token keyword">for</span> user jenkins
+Jul <span class="token number">11</span> 09:09:56 ubuntuvm1 jenkins<span class="token punctuation">[</span><span class="token number">5787</span><span class="token punctuation">]</span>:    <span class="token punctuation">..</span>.done.
+Jul <span class="token number">11</span> 09:09:56 ubuntuvm1 systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Started LSB: Start Jenkins at boot time.
+</code></pre></div><p>Jenkins 默认的侦听端口是8080，通过浏览器输入 ubuntuvm1 虚拟服务器地址和8080端口即可访问。首次访问需要解锁，请按屏幕提示操作。例如，从虚拟机里面查到密码是 “2bcb508f031743d5ada3fefb93e3167d”，将它填写在 “Administrator password” 输入框里，再按 “Continue” 按钮提交。</p> <p><img src="https://cloudappdev.netlify.app/book/img/jenkins/Ashampoo_Snap_2018.07.11_17h20m34s_001_Jenkins_1.png" alt="Jenkins admin"></p> <p>图2.5.1 Jenkins 安装后解锁</p> <p>选择让 Jenkins 加载常用的插件。</p> <p><img src="https://cloudappdev.netlify.app/book/img/jenkins/Ashampoo_Snap_2018.07.11_17h30m31s_002_SetupWizard_1.png" alt="Jenkins SetupWizard 1"></p> <p>图2.5.2 Jenkins 加载常用插件</p> <p>插件加载完成后，将可以设置管理员账号，请牢记用户名和密码。然后设置服务器的URL，这步对于目前安装在虚拟机上供实验实验的 Jenkins 实例不太重要，可以暂时跳过（在 Jenkins 设置页面中还有机会更改）。</p> <p><img src="https://cloudappdev.netlify.app/book/img/jenkins/Ashampoo_Snap_2018.07.11_17h33m14s_003_SetupWizard_2.png" alt="Jenkins SetupWizard 2"></p> <p>图2.5.3 Jenkins 创建首个管理员用户</p> <p>至此安装配置完毕，进入 Jenkins 的欢迎页面。</p> <p><img src="https://cloudappdev.netlify.app/book/img/jenkins/Ashampoo_Snap_2018.07.11_17h36m37s_004_Dashboard_1.png" alt="Jenkins Dashboard 1"></p> <p>图2.5.4 Jenkins 欢迎页面</p> <p>Jenkins 正确安装后：</p> <ul><li>Jenkins 的配置文件是： <code>/etc/default/jenkins</code></li> <li>Jenkins 的后台服务进程是： <code>/etc/init.d/jenkins</code></li> <li>Jenkins 的后台日志是： <code>/var/log/jenkins/jenkins.log</code></li> <li>创建了 jenkins:jenkins 用户以启动 Jenkins 服务。</li></ul> <p>为了避免端口占用冲突，我们将 Jenkins 的侦听端口从默认的8080改为9090。修改配置文件 <code>/etc/default/jenkins</code>，再重启 Jenkins 服务，具体如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># stop Jenkins service.</span>
+<span class="token function">sudo</span> systemctl stop jenkins
+
+<span class="token comment"># change from &quot;HTTP_PORT=8080&quot; to &quot;HTTP_PORT=9090&quot; in this file.</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/default/jenkins
+
+<span class="token comment"># restart Jenkins service.</span>
+<span class="token function">sudo</span> systemctl start jenkins
+
+<span class="token comment"># check service status, should be active now.</span>
+<span class="token function">sudo</span> systemctl status jenkins
+</code></pre></div><p>至此，Jenkins 已经修改到侦听于9090端口了。 接上例，若虚拟机 ubuntuvm1 的 IP 地址是192.168.1.7，我们可以通过 http://192.168.1.7:9090/ 来访问虚拟机 ubuntuvm1 上的 Jenkins 应用程序了。</p> <p>注意本例中 Jenkins 是以服务的方式安装的，即虚拟机重启后，Jenkins 会自动以服务的方式启动。</p> <p>Jenkins 的基本使用请参考官方文档（网址是 https://jenkins.io/doc/)。 另外，还有多本 Jenkins 的相关书籍，例如《Jenkins 权威指南》，《Mastering Jenkins》等。</p> <h3 id="_2-6-安装-apache-tomcat"><a href="#_2-6-安装-apache-tomcat" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2-6-%E5%AE%89%E8%A3%85-apache-tomcat" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2.6 安装 Apache Tomcat</h3> <p>Apache Tomcat（网址是 http://tomcat.apache.org/）是知名的 Java Web 应用程序服务器。本文中的 Web 应用程序将部署到 Tomcat 上运行，作为开发和测试环境，因而选择更灵活的手动安装模式。</p> <p>Apache Tomcat 有多个发行版。在本文写作的时间，可以看见同时有 7、8、9 三个版本，本文将选择最新的 9 版本（下载链接 https://tomcat.apache.org/download-90.cgi），版本号是 9.0.21。</p> <blockquote><p><strong>注意：</strong> 在您阅读本书的时候，最新的 Tomcat 版本很可能已经不是这个版本了，因此下载链接可能失效，应根据当时的版本号对应的下载链接，适当修改命令。</p></blockquote> <p>我们还可以参考以下的官方安装文档：</p> <ul><li>Apache Tomcat 官方的安装文档 http://tomcat.apache.org/tomcat-9.0-doc/setup.html</li> <li>Ubuntu 官方的安装文档 https://help.ubuntu.com/lts/serverguide/tomcat.html</li></ul> <p>本机安装的 Tomcat 实例主要用于部署 Web 应用程序，作为测试环境。用当前用户 “bobyuan” 来安装和启动 Tomcat， 它的安装路径选择在 <code>/usr/local</code>。先把安装包下载到当前用户的 Home 路径中，按如下命令执行安装过程，将创建符号链接 <code>/usr/local/apache-tomcat</code> 指向真实的安装路径 ，例如这里是<code>/usr/local/apache-tomcat-9.0.21</code>。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># we will going to install tomcat here.</span>
+<span class="token builtin class-name">cd</span> /usr/local
+
+<span class="token comment"># unpack the tomcat release package.</span>
+<span class="token function">sudo</span> <span class="token function">tar</span> xzf ~/apache-tomcat-9.0.21.tar.gz
+
+<span class="token comment"># change ownership to current user bobyuan</span>
+<span class="token function">sudo</span> <span class="token function">chown</span> -R bobyuan:bobyuan ./apache-tomcat-9.0.21
+
+<span class="token comment"># create symbolic link pointing to the specific tomcat release.</span>
+<span class="token function">sudo</span> <span class="token function">ln</span> -s apache-tomcat-9.0.21 apache-tomcat
+
+<span class="token comment"># remove the tomcat release package.</span>
+<span class="token function">rm</span> ~/apache-tomcat-9.0.21.tar.gz
+</code></pre></div><p>列文件清单，查看 Tomcat 的安装，应该如下图所示。须注意符号连接“apache-tomcat”指向真正的安装路径。</p> <p><img src="https://cloudappdev.netlify.app/book/img/tomcat/usr_local_apache_tomcat.png" alt="usr_local_apache_tomcat"></p> <p>图2.6.1 列文件清单查看Tomcat的安装</p> <p>修改当前用户 “bobyuan” 的 <code>~/.profile</code>，在最后添加一行如下内容：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">CATALINA_HOME</span><span class="token operator">=</span>/usr/local/apache-tomcat
+</code></pre></div><p>退出当前用户并重新登录（这将载入更新后的 <code>~/.profile</code>）。</p> <p>用当前用户 “bobyuan” 启动和关闭 Tomcat 服务，命令如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># start Tomcat server.</span>
+<span class="token variable">$CATALINA_HOME</span>/bin/startup.sh
+
+<span class="token comment"># stop Tomcat server.</span>
+<span class="token variable">$CATALINA_HOME</span>/bin/shutdown.sh
+</code></pre></div><p>Tomcat 默认的侦听端口是 8080，启动后，我们可以看到8080端口正在侦听。命令如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>bobyuan@ubuntuvm1:~$ <span class="token function">netstat</span> -an <span class="token operator">|</span> <span class="token function">grep</span> <span class="token number">8080</span>
+tcp6       <span class="token number">0</span>      <span class="token number">0</span> :::8080                 :::*                    LISTEN
+</code></pre></div><p>因此，若虚拟机的 IP 地址是 192.168.42.61，则可以用 http://192.168.42.61:8080 来访问 Tomcat，如果看到了 Tomcat 的欢迎页面（如下图），则表示安装和运行是正确的。</p> <p><img src="https://cloudappdev.netlify.app/book/img/tomcat/tomcat_9_welcome_page.png" alt="Tomcat welcome page"></p> <p>图2.6.2 Tomcat的欢迎页面</p> <p>注意，以上 Tomcat 并非以系统服务的方式安装，因此，启动和关闭 Tomcat 都需要手动操作，执行启动和关闭命令。另外，虚拟机重启后也需要手动启动 Tomcat 服务。</p> <p>至此，Tomcat 的安装已经完成。</p> <p>以下是可选的步骤，“manager” 和 “host-manager” 是Tomcat自带的 Web 界面管理应用程序，在后续的实验中并未用到，我们也可以选择跳过。</p> <p>为了使用 Tomcat 的 “manager” 和 “host-manager” 两个 Web 应用程序，需要继续按如下步骤设置。</p> <p>修改 Tomcat 的管理员登录账号。编辑配置文件 <code>conf/tomcat-users.xml</code> ，添加如下内容。注，下例中用 <code>itsasecret</code> 作为密码，它可以更改成其它的密码。</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- user manager can access only manager section --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>manager-gui<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>manager<span class="token punctuation">&quot;</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itsasecret<span class="token punctuation">&quot;</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>manager-gui<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">&lt;!-- user admin can access manager and admin section both --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>admin-gui<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>admin<span class="token punctuation">&quot;</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itsasecret<span class="token punctuation">&quot;</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>manager-gui,admin-gui<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre></div><p>如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/tomcat/Ashampoo_Snap_2018.07.12_13h08m47s_004_tomcat_2.png" alt="Tomcat config 1"></p> <p>图2.6.3 Tomcat 的用户设置</p> <p>默认的情况下，出于安全考虑，Tomcat 的 “manager” 和 “host-manager” web 应用程序只能从本地（localhost）访问。如果要从其它机器远程访问，则需要修改配置文件，将远端机器的 IP 或 IP 地址段添加到配置文件中。配置文件如下：</p> <ul><li>Manager File: <code>./webapps/manager/META-INF/context.xml</code></li> <li>Host Manager File: <code>./webapps/host-manager/META-INF/context.xml</code></li></ul> <p>如下图所示，我们需要从 Windows Host 主机来访问虚拟机上的 “manager” 和 “host-manager” web 应用程序，经查 Windows Host 主机的 IP 地址是 192.168.1.10，则在配置文件里添加 “192.168.1.10” 为远程访问客户端：</p> <p><img src="https://cloudappdev.netlify.app/book/img/tomcat/tomcat-enable-remote-access.png" alt="Tomcat remote access"></p> <p>图2.6.4 Tomcat 的远程管理访问设置</p> <p>若虚拟机的 IP 地址是 192.168.42.61，我们于是可以在 Windows Host 主机上，通过浏览器用 http://192.168.42.61:8080/manager/ （用户名 / 密码： manager / itsasecret）来访问 “Tomcat Web Application Manager”，用 http://192.168.42.61:8080/host-manager/ （用户名 / 密码： admin / itsasecret）来访问 “Tomcat Virtual Host Manager”。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/baodian/high/notes/bd1.html" class="prev">
+        1.1 什么是云计算
+      </a></span> <span class="next"><a href="/blog/baodian/high/notes/bd3.html">
+        云应用案例
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.9a92af54.js" defer></script><script src="/blog/assets/js/2.55a7f47e.js" defer></script><script src="/blog/assets/js/13.ac0cfb84.js" defer></script>
+  </body>
+</html>

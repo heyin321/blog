@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分布式版本控制系统 | 银哥博客</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/blog/img/main.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <script charset="utf-8" src="/blog/js/main.js"></script>
+    <audio autoplay="" loop="" src="img/music.mp3"></audio>
+    <meta name="description" content="">
+    <link rel="preload" href="/blog/assets/css/0.styles.fa7169f5.css" as="style"><link rel="preload" href="/blog/assets/js/app.9a92af54.js" as="script"><link rel="preload" href="/blog/assets/js/2.55a7f47e.js" as="script"><link rel="preload" href="/blog/assets/js/15.66ad0d4a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b1608.js"><link rel="prefetch" href="/blog/assets/js/11.5641bcd9.js"><link rel="prefetch" href="/blog/assets/js/12.8fa3563d.js"><link rel="prefetch" href="/blog/assets/js/13.ac0cfb84.js"><link rel="prefetch" href="/blog/assets/js/14.26cc714a.js"><link rel="prefetch" href="/blog/assets/js/16.73b2b8e6.js"><link rel="prefetch" href="/blog/assets/js/17.608890b7.js"><link rel="prefetch" href="/blog/assets/js/18.eefa5ec2.js"><link rel="prefetch" href="/blog/assets/js/19.b85b0f88.js"><link rel="prefetch" href="/blog/assets/js/20.fc777413.js"><link rel="prefetch" href="/blog/assets/js/21.00d49893.js"><link rel="prefetch" href="/blog/assets/js/22.e7c3c554.js"><link rel="prefetch" href="/blog/assets/js/23.e320e9ac.js"><link rel="prefetch" href="/blog/assets/js/24.defba0a8.js"><link rel="prefetch" href="/blog/assets/js/25.3000d134.js"><link rel="prefetch" href="/blog/assets/js/26.8e2735a0.js"><link rel="prefetch" href="/blog/assets/js/27.17d59509.js"><link rel="prefetch" href="/blog/assets/js/28.3031a0f1.js"><link rel="prefetch" href="/blog/assets/js/29.8e360f56.js"><link rel="prefetch" href="/blog/assets/js/3.7891670b.js"><link rel="prefetch" href="/blog/assets/js/30.79804f1f.js"><link rel="prefetch" href="/blog/assets/js/31.132b9930.js"><link rel="prefetch" href="/blog/assets/js/32.fd91aff9.js"><link rel="prefetch" href="/blog/assets/js/33.b27e4c27.js"><link rel="prefetch" href="/blog/assets/js/34.3d92c071.js"><link rel="prefetch" href="/blog/assets/js/4.5c24690b.js"><link rel="prefetch" href="/blog/assets/js/5.bcea38fb.js"><link rel="prefetch" href="/blog/assets/js/6.967b8d2e.js"><link rel="prefetch" href="/blog/assets/js/7.7483e399.js"><link rel="prefetch" href="/blog/assets/js/8.2b3dd0dc.js"><link rel="prefetch" href="/blog/assets/js/9.872f0352.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.fa7169f5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">银哥博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  菜鸟教程
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识宝典" class="dropdown-title"><span class="title">知识宝典</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/baodian/zero/" class="nav-link">
+  英语宝库
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/high/" class="nav-link router-link-active">
+  云应用系统开发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/java/" class="nav-link">
+  java语言
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/C/" class="nav-link">
+  物联网安全技术
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/home/" class="nav-link">
+  首页
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  菜鸟教程
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识宝典" class="dropdown-title"><span class="title">知识宝典</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/baodian/zero/" class="nav-link">
+  英语宝库
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/high/" class="nav-link router-link-active">
+  云应用系统开发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/java/" class="nav-link">
+  java语言
+</a></li><li class="dropdown-item"><!----> <a href="/blog/baodian/C/" class="nav-link">
+  物联网安全技术
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/home/" class="nav-link">
+  首页
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第1章 概述</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第2章 VirtualBox 虚拟机</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第3章 云应用示例</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>第4章 分布式版本控制系统 Git</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/baodian/high/notes/bd4.html" aria-current="page" class="active sidebar-link">分布式版本控制系统</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第5章 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="header-anchor">#</a> 分布式版本控制系统</h1> <p>分布式版本控制系统（Distributed Version Control System, DVCS）是一种不需要中心服务器来管理文件版本的方法，但是它也可以使用中心服务器。也即，中心服务器是可选的。</p> <p>知名的分布式版本控制系统有：</p> <ul><li><strong>Git</strong> （<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">https://git-scm.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>） Git（读音为/gɪt/）是 Linus Torvalds 为了帮助管理 Linux 内核开发而编写的一个开放源码的版本控制软件。它采用 C 语言实现，是开源界目前最广泛使用的分布式版本控制系统。Git 是基于 GNU General Public License version 2.0 (GPLv2) 授权的开源项目。</li> <li><strong>Mercurial</strong> （https://www.mercurial-scm.org/） Mercurial 是一个轻量级分布式版本控制系统，采用 Python 语言实现，因而天生跨平台支持更完善。它易于学习和使用，扩展性强。Mercurial 是基于 GNU General Public License version 2.0 (GPLv2) 授权的开源项目。</li></ul> <p>知名的集中式版本控制系统有：</p> <ul><li><strong>Subversion</strong> （http://subversion.apache.org/）</li> <li><strong>CVS</strong> （http://www.nongnu.org/cvs/）</li></ul> <p>相比集中式版本控制系统，分布式版本控制系统的主要优点是：</p> <ol><li>它比集中式的版本控制系统更灵活。因为它除了支持传统集中式的工作流，还支持其他各种工作流； 例如使用 Git，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的 Git 版本库。开发者可以提交到本地，变更可以合并到 DVCS 的任何其他用户的本地版本库中， 实现非常灵活的工作流。</li> <li>它比集中式版本控制系统快得多。它不依赖于服务器端软件的支持就可以工作。因为大多数操作可以在客户机本地执行，不需要通过网络操作。</li></ol> <p>鉴于 Git 在开源界的广泛使用，本书将只使用 Git 作为版本控制系统。</p> <h3 id="_4-1-git-快速入门"><a href="#_4-1-git-快速入门" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-1-git-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.1 Git 快速入门</h3> <p>以下将以 Windows Pro 64-bit 为平台，讲述 Git 的安装，以及常见的基本命令行操作。注意，Git 本是 Linux 上原生的应用程序，涉及的 Git 命令也当然都适用于 Linux。</p> <h4 id="_4-1-1-windows-上安装-git"><a href="#_4-1-1-windows-上安装-git" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-1-1-windows-%E4%B8%8A%E5%AE%89%E8%A3%85-git" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.1.1 Windows 上安装 Git</h4> <ol><li>下载并安装： https://git-scm.com/downloads</li></ol> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_for_windows_download.png" alt="Git for Windows"></p> <p>图4.1.1 Git For Windows 的下载页面</p> <p>默认的安装路径是 <code>C:\Program Files\Git</code>，安装程序会自动添加 <code>C:\Program Files\Git\cmd</code> 到系统 PATH 环境变量中。安装完成后，打开命令行窗口，查看版本，命令如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> --version
+</code></pre></div><p>按下列命令配置它（需替换用户自己的名字和邮箱）：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config --global user.name <span class="token string">&quot;YourName&quot;</span>
+<span class="token function">git</span> config --global user.email <span class="token string">&quot;email@example.com&quot;</span>
+<span class="token function">git</span> config --global gui.encoding <span class="token string">&quot;utf-8&quot;</span>
+</code></pre></div><p>它将在 <code>%USERPROFILE%</code> 里自动创建一个文本文件 <code>.gitconfig</code>，内容如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>bobyuan<span class="token operator">&gt;</span>type .gitconfig
+<span class="token punctuation">[</span>user<span class="token punctuation">]</span>
+        name <span class="token operator">=</span> YourName
+        email <span class="token operator">=</span> email@example.com
+<span class="token punctuation">[</span>gui<span class="token punctuation">]</span>
+        encoding <span class="token operator">=</span> utf-8
+</code></pre></div><p>这里创建的是当前用户的全局配置信息。对于单个具体的 <code>Git</code> 项目，如果不指定的话将继承上面的全局配置，当然，也可以指定本项目内私有的配置信息，即不使用 <code>--global</code> 参数。私有的配置信息将保存在项目文件夹内的 <code>.git\config</code> 文件里。</p> <p>如果为了方便，避免每次访问远程仓库的时候 Git 都问你登录的用户名和密码，希望将登录用户名和密码保存在本地，可以使用以下命令。它将把登录成功的用户名和密码保存在 <code>%USERPROFILE%</code> 里“.git-credentials”文件中，同样是个文本文件。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># to store the passwords in .git-credentials in your home directory.</span>
+<span class="token function">git</span> config --global credential.helper store
+</code></pre></div><p>而对于单个具体 Git 项目私有的配置，即不使用 <code>--global</code>参数，可以这样。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># to store the passwords in your specific Git project.</span>
+<span class="token function">git</span> config credential.helper store
+
+<span class="token comment"># let Git to resume to asking you for credentials every time.</span>
+<span class="token function">git</span> config --unset credential.helper
+</code></pre></div><p>另外，此安装包自带了一个极为简单的图形界面，运行 <code>git-gui</code> 来打开。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_gui_main.png" alt="git-gui"></p> <p>图4.1.2 Git For Windows 自带的图形用户界面</p> <p>如果我们主要是在 Windows 上工作，免费的 Git 图形界面软件值得推荐的是 TortoiseGit （网址是 https://tortoisegit.org/）。图形界面的使用不是本文讨论的范畴，它只是为了方便脱离命令行使用，原理都是一样的。如果我们掌握了 Git 命令行操作，理解了 Git 的工作原理，那么图形界面软件的操作也肯定是不在话下了。</p> <h4 id="_4-1-2-常见的基本命令行操作"><a href="#_4-1-2-常见的基本命令行操作" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-1-2-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.1.2 常见的基本命令行操作</h4> <h5 id="_1）本地版本库"><a href="#_1）本地版本库" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_1%EF%BC%89%E6%9C%AC%E5%9C%B0%E7%89%88%E6%9C%AC%E5%BA%93" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>1）本地版本库</h5> <p>在本地创建一个文件夹 <code>learngit</code>，通过 <code>git init</code> 命令把这个目录初始化成 Git 可以管理的版本库（repository）。为了避免出现一些不必要的麻烦，请注意文件夹路径不要包含中文，空格等字符。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token operator">&gt;</span>mkdir learngit
+
+D:<span class="token punctuation">\</span>TEMP<span class="token operator">&gt;</span>cd learngit
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git init
+Initialized empty Git repository <span class="token keyword">in</span> D:/TEMP/learngit/.git/
+</code></pre></div><p>我们可以看到一个隐藏文件夹 <code>.git</code>，它里面有多个文件，是 Git 在本地的版本库。</p> <p>Git 的版本库里存了很多东西，其中最重要的就是称为 Stage（或者叫 Index）的暂存区，还有 Git 为我们自动创建的第一个分支 <code>master</code>，以及指向 <code>master</code> 的一个指针 <code>HEAD</code>。</p> <p>提交到版本库需要分2步走：先是将文件添加（add）到暂存区，再一并提交（commit）到版本库里的<code>master</code>分支上。简单的示例如下图。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_repository_0.png" alt="git_repo_0"></p> <p>图4.1.3 Git 的版本库</p> <p>小结，涉及创建本地版本库的常用命令有：</p> <ul><li>初始化本地版本库： <code>git init</code></li></ul> <h5 id="_2）添加并提交"><a href="#_2）添加并提交" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_2%EF%BC%89%E6%B7%BB%E5%8A%A0%E5%B9%B6%E6%8F%90%E4%BA%A4" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>2）添加并提交</h5> <p>新建一个文本文件 <code>readme.txt</code>。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo Git is a version control system. <span class="token operator">&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+</code></pre></div><p>把它加到暂存区，再提交到版本库里。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;add readme.txt into repository&quot;</span>
+<span class="token punctuation">[</span>master <span class="token punctuation">(</span>root-commit<span class="token punctuation">)</span> 0cd3695<span class="token punctuation">]</span> <span class="token function">add</span> readme.txt into repository
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> readme.txt
+</code></pre></div><p>用 <code>git log</code> 查看提交记录，并用 <code>git status</code> 查看当前的工作区状态。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log
+commit b2054aba8f7be9049b35aec08574fde93547a11a <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:34:11 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> readme.txt into repository
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+nothing to commit, working tree clean
+</code></pre></div><p>再多创建几个文件，将它们都提交到版本库里：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo file1 content <span class="token operator">&gt;</span> file1.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo file2 content <span class="token operator">&gt;</span> file2.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo file3 content <span class="token operator">&gt;</span> file3.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> file1.txt file2.txt file3.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+
+        new file:   file1.txt
+        new file:   file2.txt
+        new file:   file3.txt
+
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;add file1, file2 and file3&quot;</span>
+<span class="token punctuation">[</span>master 2165d38<span class="token punctuation">]</span> <span class="token function">add</span> file1, file2 and file3
+ <span class="token number">3</span> files changed, <span class="token number">3</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> file1.txt
+ create mode <span class="token number">100644</span> file2.txt
+ create mode <span class="token number">100644</span> file3.txt
+</code></pre></div><p>我们可以看到，提交成功后工作区空间便是空的了。用 <code>git log</code> 可以看到这次提交的记录。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+nothing to commit, working tree clean
+
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log
+commit 7c77f840f332074cb75085a31a8c5e862382055c <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:35:26 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> file1, file2 and file3
+
+commit b2054aba8f7be9049b35aec08574fde93547a11a
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:34:11 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> readme.txt into repository
+</code></pre></div><p>小结，涉及添加并提交到本地版本库的常用命令有：</p> <ul><li>添加文件到暂存区： <code>git add &lt;file&gt;</code></li> <li>提交到本地版本库： <code>git commit -m &quot;a short description&quot;</code></li> <li>查看提交记录： <code>git log</code></li> <li>查看当前状态： <code>git status</code></li></ul> <h5 id="_3）修改并提交"><a href="#_3）修改并提交" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_3%EF%BC%89%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%8F%90%E4%BA%A4" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>3）修改并提交</h5> <p>给 <code>readme.txt</code> 增加一行文字。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo Git is a <span class="token function">free</span> software.  <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+</code></pre></div><p>我们可以通过 <code>git status</code> 看到，提示 <code>readme.txt</code> 文件已经更改。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>如果此时我们对当前的修改不满意，想要回退到之前提交的版本，可以参照上面的提示，用命令 <code>git checkout -- readme.txt</code> 回退。当前的修改将被丢弃。注意，命令中的“--”很重要，没有它，就变成了“切换到另一个分支”的命令，</p> <p>而如果我们认可当前的修改，我们就可以把它加入到工作区，然后提交到版本库。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;append a line into readme.txt&quot;</span>
+<span class="token punctuation">[</span>master 03ac17e<span class="token punctuation">]</span> append a line <span class="token keyword">in</span> readme.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>提交后，工作区的状态已经空了，且 <code>git log</code> 可以看到这次提交的记录。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+nothing to commit, working tree clean
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log
+commit 22ddccf734d1568391a0e84d1d2b07c02d2601b8 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:39:04 <span class="token number">2019</span> +0800
+
+    append a line into readme.txt
+
+commit 7c77f840f332074cb75085a31a8c5e862382055c
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:35:26 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> file1, file2 and file3
+
+commit b2054aba8f7be9049b35aec08574fde93547a11a
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:34:11 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> readme.txt into repository
+</code></pre></div><p>在有些场景下，若出现了人为错误，希望修改先前的提交，可以用 <code>--amend</code> 命令。例如：</p> <p>场景1： 如果提交后，不满意之前的提交信息（即 <code>-m</code> 参数后面跟的描述信息），可以修改它。命令格式如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> commit --amend -m <span class="token string">&quot;New commit message&quot;</span>
+</code></pre></div><p>例如在下面的例子中，我们把之前的提交信息“append a line into readme.txt”改成了“New commit message”。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit --amend -m <span class="token string">&quot;New commit message&quot;</span>
+<span class="token punctuation">[</span>master 67e8599<span class="token punctuation">]</span> New commit message
+ Date: Tue Mar <span class="token number">12</span> <span class="token number">10</span>:39:04 <span class="token number">2019</span> +0800
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>从 git log 中可见，修改后描述从之前的“append a line into readme.txt”已经变成了“New commit message”。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log
+commit 67e8599c82a0623e2f77fbeab3aea77a46f7f764 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:39:04 <span class="token number">2019</span> +0800
+
+    New commit message
+
+commit 7c77f840f332074cb75085a31a8c5e862382055c
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:35:26 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> file1, file2 and file3
+
+commit b2054aba8f7be9049b35aec08574fde93547a11a
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:34:11 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> readme.txt into repository
+</code></pre></div><p>场景2：当你提交之后，发现还有一个文件给漏掉了，想把它加到之前的提交上，而描述不变。命令格式如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">add</span> another_file.txt
+<span class="token function">git</span> commit --amend --no-edit
+</code></pre></div><p>例如在下面的例子中，我们新增了一个文件 <code>another_file.txt</code>，把它加到先前的提交上。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo It is another <span class="token function">file</span> that is needed. <span class="token operator">&gt;</span> another_file.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type another_file.txt
+It is another <span class="token function">file</span> that is needed.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> another_file.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit --amend --no-edit
+<span class="token punctuation">[</span>master b2750d1<span class="token punctuation">]</span> New commit message
+ Date: Tue Mar <span class="token number">12</span> <span class="token number">10</span>:39:04 <span class="token number">2019</span> +0800
+ <span class="token number">2</span> files changed, <span class="token number">2</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> another_file.txt
+</code></pre></div><p>从 git log 中我们可以看到，最近的提交 ID 变化了。之前的提交是“67e8599c82a0623e2f77fbeab3aea77a46f7f764”，而现在是“b2750d179ac0ca566c6ba9dc8c88824d99a6086b”。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log
+commit b2750d179ac0ca566c6ba9dc8c88824d99a6086b <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:39:04 <span class="token number">2019</span> +0800
+
+    New commit message
+
+commit 7c77f840f332074cb75085a31a8c5e862382055c
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:35:26 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> file1, file2 and file3
+
+commit b2054aba8f7be9049b35aec08574fde93547a11a
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">10</span>:34:11 <span class="token number">2019</span> +0800
+
+    <span class="token function">add</span> readme.txt into repository
+</code></pre></div><p>小结，涉及修改并提交到本地版本库的常用命令有：</p> <ul><li>文件修改后提交到本地版本库，需要先添加（add）再提交（commit）。</li> <li>如果要修改先前提交信息，或者将漏掉的文件加入到之前的提交，可以用 <code>--amend</code> 选项。</li></ul> <h5 id="_4）暂存区"><a href="#_4）暂存区" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4%EF%BC%89%E6%9A%82%E5%AD%98%E5%8C%BA" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4）暂存区</h5> <p>我们再次修改 readme.txt，给它尾部增加一行文字，同时，创建了一个新文件 LICENSE 。查看状态，可以看到提示说，readme.txt 已被修改过（modified），而 LICENSE 未被版本管理跟踪（Untracked）。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo Git has a mutable index called stage. <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo License Information <span class="token operator">&gt;</span> LICENSE
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+
+Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+
+        LICENSE
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>若要将它们提交，依然是分2步走：先添加，再提交。</p> <p>在添加后，我们可以看到这2个文件已经进入暂存区。如下图所示：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt LICENSE
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+
+        new file:   LICENSE
+        modified:   readme.txt
+</code></pre></div><p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_repository_1.png" alt="git_repo_1"></p> <p>图4.1.4 暂存区，添加文件到暂存区</p> <p>提交后，暂存区就清空了。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;modify readme.txt and add LICENSE&quot;</span>
+<span class="token punctuation">[</span>master be0af06<span class="token punctuation">]</span> modify readme.txt and <span class="token function">add</span> LICENSE
+ <span class="token number">2</span> files changed, <span class="token number">2</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> LICENSE
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+nothing to commit, working tree clean
+</code></pre></div><p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_repository_2.png" alt="git_repo_2"></p> <p>图4.1.5 暂存区，提交文件到版本库</p> <p>暂存区（Stage）提供了一个缓冲，我们把当前工作区（即当前文件夹）的文件先添加到暂存区，然后一次性提交到本地版本库。有暂存区的好处是，如果添加文件过程中发生人为错误还来得及修改。</p> <p>需要注意的是，当前工作区内的文件修改后（此文件之前已经入库），一定要添加到缓存区后才能被提交。如果我们修改后，忘记再次添加到缓存区，则提交时只会将缓存区内的文件提交，而不会把我们工作区内新的修改带上。</p> <p>下面我们试看利用暂存区回滚的情况。</p> <p>我们再给 readme.txt 增加一行文字。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo But my boss still prefers SVN. <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+Git has a mutable index called stage.
+But my boss still prefers SVN.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>因为还没添加到缓存区，如果想要丢弃修改，按提示 <code>git checkout -- &lt;file&gt;...</code> 所述命令，回到最近一次提交的情况。具体命令如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout -- readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+Git has a mutable index called stage.
+</code></pre></div><p>要是不小心已经将它添加到暂存区了：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo But my boss still prefers SVN. <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+</code></pre></div><p>我们可以按提示所述 <code>git reset HEAD &lt;file&gt;</code> 命令将它移除暂存区（Unstage）：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git reset HEAD readme.txt
+Unstaged changes after reset:
+M       readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+
+        modified:   readme.txt
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>我们可以继续按提示 <code>git checkout -- &lt;file&gt;...</code> 所述命令，丢弃修改，返回到最近一次提交的情况。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is <span class="token function">free</span> software.
+Git has a mutable index called stage.
+My stupid boss still prefers SVN.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout -- readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is <span class="token function">free</span> software.
+Git has a mutable index called stage.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+nothing to commit, working tree clean
+</code></pre></div><p>小结，涉及暂存区的常用命令有：</p> <ul><li><p>将已经添加到暂存区的文件撤销。 <code>git reset HEAD &lt;file&gt;</code></p></li> <li><p>若要将本地文件的修改丢弃，退回到最近一次提交到本地版本库的样子。</p> <p><code>git checkout -- &lt;file_name&gt;</code></p></li></ul> <h5 id="_5）删除与改名"><a href="#_5）删除与改名" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_5%EF%BC%89%E5%88%A0%E9%99%A4%E4%B8%8E%E6%94%B9%E5%90%8D" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>5）删除与改名</h5> <p>如果由于误操作删除了某个文件，可以很方便地按 <code>git checkout -- &lt;file&gt;...</code> 恢复到最近一次提交的情况。这与之前丢弃本地修改的例子一样。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>del readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+The system cannot <span class="token function">find</span> the <span class="token function">file</span> specified.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout -- readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is <span class="token function">free</span> software.
+Git has a mutable index called stage.
+</code></pre></div><p>如果我们确实是想删除某个文件，例如“file3.txt”，可以用 <code>git rm &lt;file&gt;...</code> 命令操作。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">rm</span> file3.txt
+<span class="token function">rm</span> <span class="token string">'file3.txt'</span>
+</code></pre></div><p>然后，提交到版本库。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+
+        deleted:    file3.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;deleted file3.txt&quot;</span>
+<span class="token punctuation">[</span>master ba5eb05<span class="token punctuation">]</span> deleted file3.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> deletion<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+ delete mode <span class="token number">100644</span> file3.txt
+</code></pre></div><p>如果一个文件已经被提交到版本库中了，那么不用担心误删，但是要注意，我们只能恢复文件到版本库里的版本。也就是说，这将会丢失最近一次提交之后的修改。</p> <p>类似的，移动或改名的命令是：<code>git mv &lt;source&gt; &lt;destination&gt;</code>。例如，我们将文件“file2.txt”改名为“file2_renamed.txt”：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">mv</span> file2.txt file2_renamed.txt
+</code></pre></div><p>然后，提交到版本库：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+
+        renamed:    file2.txt -<span class="token operator">&gt;</span> file2_renamed.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;rename file2.txt&quot;</span>
+<span class="token punctuation">[</span>master eca88d6<span class="token punctuation">]</span> <span class="token function">rename</span> file2.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">0</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>, <span class="token number">0</span> deletions<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+ <span class="token function">rename</span> file2.txt <span class="token operator">=</span><span class="token operator">&gt;</span> file2_renamed.txt <span class="token punctuation">(</span><span class="token number">100</span>%<span class="token punctuation">)</span>
+</code></pre></div><p>可以显示它的更多信息：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git show file2_renamed.txt
+commit eca88d631b8f59edf2b075ebbeae9c83e8d80a26 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: bobyuan <span class="token operator">&lt;</span>yuan.bob@outlook.com<span class="token operator">&gt;</span>
+Date:   Tue Mar <span class="token number">12</span> <span class="token number">11</span>:54:02 <span class="token number">2019</span> +0800
+
+    <span class="token function">rename</span> file2.txt
+
+<span class="token function">diff</span> --git a/file2_renamed.txt b/file2_renamed.txt
+new <span class="token function">file</span> mode <span class="token number">100644</span>
+index 0000000<span class="token punctuation">..</span>00db75b
+--- /dev/null
++++ b/file2_renamed.txt
+@@ -0,0 +1 @@
++file2 content
+</code></pre></div><p>小结，涉及删除、移动或改名的常用命令有：</p> <ul><li>将某个文件删除： <code>git rm &lt;file&gt;</code></li> <li>将某个文件或文件夹移动或改名：<code>git mv &lt;source&gt; &lt;destination&gt;</code></li> <li>显示某个文件的多项信息： <code>git show &lt;file&gt;</code></li></ul> <h5 id="_6）分支"><a href="#_6）分支" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_6%EF%BC%89%E5%88%86%E6%94%AF" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>6）分支</h5> <p>Git 把每次提交串成一条时间线，这条时间线就是一个分支（branch）。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即 master 分支。HEAD 严格来说不是指向提交，而是指向 master，master 才是指向提交的分支名称，所以，HEAD 指向的就是当前分支。</p> <p>一开始的时候，master 分支是一条线，Git 用 master 指向最新的提交，再用 HEAD 指向 master，就能确定当前分支以及当前分支的提交点，具体如图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_0.png" alt="git branch"></p> <p>图4.1.6 分支</p> <p>每提交一次，master 分支都会向前移动一步。这样，随着我们不断提交，master 分支的线也越来越长。例如下图所示为经过三次提交后的情形。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_1.png" alt="git_branch_1"></p> <p>图4.1.7 增加一次提交</p> <p>例如，当创建新的分支 <code>dev</code> 时，Git 会新建一个 <code>dev</code> 指针指向 <code>master</code> 相同的提交，再把 <code>HEAD</code> 指向 <code>dev</code>，就表示当前分支在 <code>dev</code>上。如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_create_dev.png" alt="git-br-create-dev"></p> <p>图4.1.8 新建 dev 分支</p> <p>Git 能快速创建一个分支，因为除了增加一个 <code>dev</code> 指针、改变 <code>HEAD</code> 的指向外，工作区的文件不需要任何变化。</p> <p>然而，从现在开始，对工作区的修改和提交就是针对 <code>dev</code> 分支了，比如新提交一次后，<code>dev</code> 指针往前移动一步，而 <code>master</code> 指针没变。如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_dev_fd.png" alt="git-br-dev-fd"></p> <p>图4.1.9 在 dev 分支上提交</p> <p>假如在 <code>dev</code> 上的工作完成了，就可以把 <code>dev</code> 合并到 <code>master</code> 上。Git 是直接把 <code>master</code> 指向 <code>dev</code> 的当前提交，就完成了合并。如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_merge.png" alt="git-br-merge"></p> <p>图4.1.10 在 master 分支上合并 dev 分支</p> <p>可见 Git 合并分支也很快。只改变了指针，工作区内容不需要变动，效率非常高！</p> <p>合并完分支后，可以删除不用的 <code>dev</code> 分支。删除 <code>dev</code> 分支就是删掉 <code>dev</code> 指针，之后就剩下了一条 <code>master</code> 分支。如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_rm_dev.png" alt="git-br-rm-dev"></p> <p>图4.1.11 删除不用的 dev 分支</p> <p>下面我们示范操作。</p> <p>创建分支，并切换到新的分支上:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git branch dev
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout dev
+Switched to branch <span class="token string">'dev'</span>
+</code></pre></div><p>注意，在实际工作中，以上两步其实可以简化成一条命令：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> checkout -b dev
+</code></pre></div><p>我们查看一下分支情况（当前是在打“*”号的分支上）。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git branch
+* dev
+  master
+</code></pre></div><p>修改 <code>readme.txt</code>，增加一行文字：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo Creating a new branch is quick.  <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is <span class="token function">free</span> software.
+Git has a mutable index called stage.
+Creating a new branch is quick.
+</code></pre></div><p>然后提交：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;append a line of text to readme.txt&quot;</span>
+<span class="token punctuation">[</span>dev 5f1bd73<span class="token punctuation">]</span> append a line of text to readme.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>现在，<code>dev</code> 分支的工作完成，我们就可以切换回 <code>master</code> 分支。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout master
+Switched to branch <span class="token string">'master'</span>
+</code></pre></div><p>需要注意的是，切换到其他分支时，当前分支必须没有修改，或者修改已经提交到版本库中了，否则会切换失败。</p> <p>切换回 <code>master</code> 分支后，再查看一下 <code>readme.txt</code> 文件，刚才添加的内容不见了！那是因为之前提交的是在 <code>dev</code> 分支上，而 <code>master</code> 分支此刻的提交点并没有变。结果如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_on_master.png" alt="git-br-on-master"></p> <p>图4.1.12 切换回 master 分支</p> <p>现在，我们把 <code>dev</code> 分支的工作成果合并到 <code>master</code> 分支上：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git merge dev
+Updating eca88d6<span class="token punctuation">..</span>5f1bd73
+Fast-forward
+ readme.txt <span class="token operator">|</span> <span class="token number">1</span> +
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p><code>git merge</code> 命令用于合并指定分支到当前分支。合并后，再查看 <code>readme.txt</code> 的内容，可以看到，和 <code>dev</code> 分支的最新提交是完全一样的。</p> <p>Git 提示我们，这次合并是快进模式（Fast-forward），也就是直接把 <code>master</code> 指向 <code>dev</code> 的当前提交，所以合并速度非常快。不是每次合并都能 Fast-forward，后面会介绍其它方式的合并。</p> <p>合并完成后，就可以删除 <code>dev</code> 分支了。删除后查看分支，可以看到只剩下了 <code>master</code> 分支：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git branch -d dev
+Deleted branch dev <span class="token punctuation">(</span>was 5f1bd73<span class="token punctuation">)</span>.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git branch
+* master
+</code></pre></div><p>Git 创建、合并和删除分支非常快，所以 Git 推荐使用分支完成某个任务。这和直接在 <code>master</code> 分支上工作效率是一样的，且更安全（不影响 master 分支），更灵活（自己的分支只有自己可见，且不能预判什么时候能开发完），特别适用于多人协作开发的场合：</p> <ul><li>假如在分支上的任务完成，可以合并到 <code>master</code> 分支后再将此分支删掉；</li> <li>如果分支上的任务完成得不理想，则可以直接丢弃，不进行合并，直接将此分支删除。</li></ul> <p>小结，涉及分支的常用命令有：</p> <ul><li>查看分支：<code>git branch</code></li> <li>创建分支：<code>git branch &lt;branch_name&gt;</code></li> <li>切换分支：<code>git checkout &lt;branch_name&gt;</code></li> <li>创建+切换分支：<code>git checkout -b &lt;branch_name&gt;</code></li> <li>合并某分支到当前分支：<code>git merge &lt;branch_name&gt;</code></li> <li>删除分支：<code>git branch -d &lt;branch_name&gt;</code></li></ul> <h5 id="_7）解决冲突"><a href="#_7）解决冲突" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_7%EF%BC%89%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>7）解决冲突</h5> <p>在合并分支的操作中，一般情况下 Git 会自动合并文本文件的修改，但是，若同一个文件的同一行存在不同的修改时，就需要人工参与合并，解决冲突后再次提交。</p> <p>例如，我们创建一个新的 <code>feature1</code> 分支，在新分支上开发：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout -b feature1
+Switched to a new branch <span class="token string">'feature1'</span>
+</code></pre></div><p>修改 <code>readme.txt</code> 文件，增加了一行文字：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo This line will cause conflict. <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+Git has a mutable index called stage.
+Creating a new branch is quick.
+This line will cause conflict.
+</code></pre></div><p>然后在 <code>feature1</code> 分支上：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;add a line to readme.txt that will in conflict.&quot;</span>
+<span class="token punctuation">[</span>feature1 b5fe885<span class="token punctuation">]</span> <span class="token function">add</span> a line to readme.txt that will <span class="token keyword">in</span> conflict.
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>切换回到 <code>master</code> 分支。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git checkout master
+Switched to branch <span class="token string">'master'</span>
+</code></pre></div><p>这次也是修改 <code>readme.txt</code> 文件，增加了一行文字，但稍许不同（它们都处在同一行，即第5行）：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo This line will cause conflict <span class="token keyword">while</span> merging. <span class="token operator">&gt;&gt;</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is <span class="token function">free</span> software.
+Git has a mutable index called stage.
+Creating a new branch is quick.
+This line will cause conflict <span class="token keyword">while</span> merging.
+</code></pre></div><p>在 <code>master</code> 分支上提交：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;add a line to readme.txt, it for sure will result a conflict.&quot;</span>
+<span class="token punctuation">[</span>master fe8dbec<span class="token punctuation">]</span> <span class="token function">add</span> a line to readme.txt, it <span class="token keyword">for</span> sure will result a conflict.
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>现在，<code>master</code> 分支和 <code>feature1</code> 分支各自都分别有新的提交，变成了下图所示情况：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_feature1.png" alt="git-br-feature1"></p> <p>图4.1.13 master 和 feature1 分支都有新的提交</p> <p>这种情况下，Git 无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会发生冲突：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git merge feature1
+Auto-merging readme.txt
+CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> readme.txt
+Automatic merge failed<span class="token punctuation">;</span> fix conflicts and <span class="token keyword">then</span> commit the result.
+</code></pre></div><p>可见发生了冲突！Git 告诉我们 <code>readme.txt</code> 文件存在冲突，必须手动解决冲突后再提交。用<code>git status</code> 也可以查看到发生冲突的文件：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git status
+On branch master
+You have unmerged paths.
+  <span class="token punctuation">(</span>fix conflicts and run <span class="token string">&quot;git commit&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git merge --abort&quot;</span> to abort the merge<span class="token punctuation">)</span>
+
+Unmerged paths:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to mark resolution<span class="token punctuation">)</span>
+
+        both modified:   readme.txt
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>我们可以直接查看 <code>readme.txt</code> 的内容。它变成了这样：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+Git has a mutable index called stage.
+Creating a new branch is quick.
+<span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;</span> HEAD
+This line will cause conflict <span class="token keyword">while</span> merging.
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+This line will cause conflict.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> feature1
+</code></pre></div><p>Git 用 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 标记分割不同分支的内容，便于我们对比后合并。</p> <p>我们修改 <code>readme.txt</code> 后保存。内容如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type readme.txt
+Git is a version control system.
+Git is a <span class="token function">free</span> software.
+Git has a mutable index called stage.
+Creating a new branch is quick.
+This line will now have no conflict, merged manually.
+</code></pre></div><p>再次提交，这次成功了。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> readme.txt
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;conflict resolved.&quot;</span>
+<span class="token punctuation">[</span>master fa56be4<span class="token punctuation">]</span> conflict resolved.
+</code></pre></div><p>现在，<code>master</code> 分支和 <code>feature1</code> 分支变成了下图所示的情形。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/git_branch_conflict_resolved.png" alt="git-br-conflict-resolved"></p> <p>图4.1.14 在 master 分支上合并 feature1 分支</p> <p>用带参数的 <code>git log</code> 查看分支的合并情况。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git log --graph --pretty<span class="token operator">=</span>oneline --abbrev-commit
+*   fa56be4 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span> conflict resolved.
+<span class="token operator">|</span><span class="token punctuation">\</span>
+<span class="token operator">|</span> * b5fe885 <span class="token punctuation">(</span>feature1<span class="token punctuation">)</span> <span class="token function">add</span> a line to readme.txt that will <span class="token keyword">in</span> conflict.
+* <span class="token operator">|</span> fe8dbec <span class="token function">add</span> a line to readme.txt, it <span class="token keyword">for</span> sure will result a conflict.
+<span class="token operator">|</span>/
+* 5f1bd73 append a line of text to readme.txt
+* eca88d6 <span class="token function">rename</span> file2.txt
+* ba5eb05 deleted file3.txt
+* 8ff8d96 modify readme.txt and <span class="token function">add</span> LICENSE
+* b2750d1 New commit message
+* 7c77f84 <span class="token function">add</span> file1, file2 and file3
+* b2054ab <span class="token function">add</span> readme.txt into repository
+</code></pre></div><p>我们还可以运行 <code>gitk</code> 图形界面来看分支情况。如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/gitk_main_branches.png" alt="gitk_branch"></p> <p>图4.1.15 运行 gitk 图形界面</p> <p>最后，合并后不再需要的 <code>feature1</code> 分支，须删除：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git branch -d feature1
+Deleted branch feature1 <span class="token punctuation">(</span>was b5fe885<span class="token punctuation">)</span>.
+</code></pre></div><p>当 Git 无法自动合并分支时，就产生了冲突，需要手工修改发生冲突的文件，编辑成为我们希望的内容，再提交即可。</p> <p>小结，涉及解决冲突的常用命令有：</p> <ul><li>合并另一分支到当前分支：<code>git merge &lt;another_branch_name&gt;</code></li> <li>冲突解决后，再次提交：<code>git commit -m &quot;a short description&quot;</code></li> <li>合并完成后，删除另一分支：<code>git branch -d &lt;another_branch_name&gt;</code></li> <li>图形化显示提交记录：<code>git log --graph --pretty=oneline --abbrev-commit</code></li></ul> <h5 id="_8）远程版本库"><a href="#_8）远程版本库" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_8%EF%BC%89%E8%BF%9C%E7%A8%8B%E7%89%88%E6%9C%AC%E5%BA%93" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>8）远程版本库</h5> <p>以 Git 托管服务 GitHub 为例，在上面新建立一个远程版本库（Repository），然后将它克隆到本地（Clone），作为本地版本库。我在本地版本库上做修改，完成后提交到本地库（Commit），再推送到远程版本库上（Push）。其他合作开发者也可以进行同样的操作，于是就可以通过远程版本库来协作开发了。如果需要让本地库和远程库同步，可执行拉操作（Pull），大多数情况下 Git 会自动合并（Merge），但如果有冲突（Conflict），那么也可以解决冲突后，再次提交并推送到远程版本库上。</p> <p>这就是作为团队协作开发使用远程版本库的常见模式。如果是单个人开发，则这样做的好处是，远程版本库可以作为备份，从而保证数据安全。</p> <p>在 GitHub 上创建一个“learngit”的远程版本库，如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/github_create_learngit.png" alt="GitHub create learngit repo"></p> <p>图4.1.16 创建新的代码库</p> <p>创建成功后，按“Clone or download”按钮，会出现下拉窗口，显示了克隆此远程版本库的URL：</p> <p>https://github.com/bobyuancn/learngit.git</p> <p>记住这个 URL，它将用在后面的克隆命令中。代码库的克隆链接位置如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/github_view_learngit.png" alt="GitHub view learngit"></p> <p>图4.1.17 代码库的克隆链接</p> <p>将它克隆到本地，使用命令<code>git clone &lt;remote_repo_url&gt;</code>，如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token operator">&gt;</span>mkdir github
+
+D:<span class="token punctuation">\</span>TEMP<span class="token operator">&gt;</span>cd github
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token operator">&gt;</span>git clone https://github.com/bobyuancn/learngit.git
+Cloning into <span class="token string">'learngit'</span><span class="token punctuation">..</span>.
+remote: Enumerating objects: <span class="token number">3</span>, done.
+remote: Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">3</span>/3<span class="token punctuation">)</span>, done.
+remote: Total <span class="token number">3</span> <span class="token punctuation">(</span>delta <span class="token number">0</span><span class="token punctuation">)</span>, reused <span class="token number">0</span> <span class="token punctuation">(</span>delta <span class="token number">0</span><span class="token punctuation">)</span>, pack-reused <span class="token number">0</span>
+Unpacking objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">3</span>/3<span class="token punctuation">)</span>, done.
+</code></pre></div><p>结果显示，本地只有一个“README.md”文本文件：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token operator">&gt;</span>cd learngit
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type README.md
+<span class="token comment"># learngit</span>
+</code></pre></div><p>我们用文本编辑器打开它，修改成为如下内容并保存：</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code><span class="token title important"><span class="token punctuation">#</span> learngit</span>
+This is my first Git based project.
+</code></pre></div><p>检查一下“README.md”的内容，将它提交到本地库：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>type README.md
+<span class="token comment"># learngit</span>
+This is my first Git based project.
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> README.md
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git commit -m <span class="token string">&quot;Add a line of text to README.txt&quot;</span>
+<span class="token punctuation">[</span>master bdedcc7<span class="token punctuation">]</span> Add a line of text to README.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">2</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>, <span class="token number">1</span> deletion<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+</code></pre></div><p>再把当前工作的主分支 <code>master</code> 推送到服务器上的远程版本库中，使用命令<code>git push origin master</code>，如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git push origin master
+Enumerating objects: <span class="token number">5</span>, done.
+Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">5</span>/5<span class="token punctuation">)</span>, done.
+Writing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">3</span>/3<span class="token punctuation">)</span>, <span class="token number">304</span> bytes <span class="token operator">|</span> <span class="token number">304.00</span> KiB/s, done.
+Total <span class="token number">3</span> <span class="token punctuation">(</span>delta <span class="token number">0</span><span class="token punctuation">)</span>, reused <span class="token number">0</span> <span class="token punctuation">(</span>delta <span class="token number">0</span><span class="token punctuation">)</span>
+To https://github.com/bobyuancn/learngit.git
+   678719e<span class="token punctuation">..</span>bdedcc7  master -<span class="token operator">&gt;</span> master
+</code></pre></div><p>用浏览器访问此远程版本库（https://github.com/bobyuancn/learngit），发现我们的修改已经存在了，如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git_tutorial/github_view_learngit_new.png" alt="GitHub view learngit new"></p> <p>图4.1.18 查看版本库的变更</p> <p>若有需要从远程版本库同步到本地库，使用命令<code>git pull</code>，如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>github<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git pull
+Already up to date.
+</code></pre></div><p>分布式版本系统在本地工作完全不需要考虑远程库的存在，没有联网时也可以正常工作；而集中式版本控制系统 （如 Subversion）在没有联网的时候是无法工作的！当有网络的时候，再把本地提交推送到远程版本库。</p> <p>小结，涉及远程版本库的常用命令有：</p> <ul><li>将远程版本库克隆到本地库： <code>git clone &lt;remote_repo_url&gt;</code></li> <li>将本地库的修改推送到远程版本库： <code>git push ...</code></li> <li>将远程版本库同步到本地库： <code>git pull</code></li></ul> <h5 id="_9）-gitignore-文件"><a href="#_9）-gitignore-文件" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_9%EF%BC%89-gitignore-%E6%96%87%E4%BB%B6" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>9）“.gitignore”文件</h5> <p>“.gitignore”是一个纯文本文件，置于工作区中，方便 Git 过滤掉那些不需要版本控制的文件，例如：</p> <ol><li>操作系统自动生成的文件，例如： <code>Thumbs.db, ehthumbs.db, Desktop.ini</code></li> <li>编译生成的中间文件、可执行文件等，例如：<code>*.class，*.jar, *.war, *.exe</code></li> <li>其他文件，例如备份文件 <code>*.bak</code>、日志文件 <code>*.log</code> 、个性化配置文件等。</li></ol> <p>例如，下面是一个 Python 项目中的过滤条件。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># ignore specific folder.</span>
+/.idea/
+/.settings/
+/.vscode/
+/build/apidoc/
+
+
+<span class="token comment"># ignore specific file.</span>
+/src/.coverage
+
+
+<span class="token comment"># ignore any folder.</span>
+__pycache__/
+
+
+<span class="token comment"># ignore any file.</span>
+*.pyc
+*.log
+*.bak
+</code></pre></div><p>我们可以参照它来编写符合自己项目使用的“.gitignore”。“.gitignore”本身可以加入版本库里，作为项目文件的一部分。</p> <p>值得提及的是，GitHub 里有个“.gitignore”的模板大集合，方便我们参考： https://github.com/github/gitignore</p> <p>例如，我们创建一个文件“mybackup.bak”，欲添加它到暂存区，但添加不了，因为这个文件符合“*.bak” 规则，被过滤掉了。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>echo This is a backup <span class="token function">file</span> <span class="token operator">&gt;</span> mybackup.bak
+
+D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git <span class="token function">add</span> mybackup.bak
+The following paths are ignored by one of your .gitignore files:
+mybackup.bak
+Use -f <span class="token keyword">if</span> you really want to <span class="token function">add</span> them.
+</code></pre></div><p>若要强制添加，如上提示，可以用“-f”参数： <code>git add -f mybackup.bak</code></p> <p>若你想知道是哪个过滤规则导致了此文件被过滤，可以用 <code>git check-inore</code> 命令来检查。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>D:<span class="token punctuation">\</span>TEMP<span class="token punctuation">\</span>learngit<span class="token operator">&gt;</span>git check-ignore -v mybackup.bak
+.gitignore:2:*.bak      mybackup.bak
+</code></pre></div><p>反馈提示是“.gitignore”的第2行，规则“*.bak”。根据这样的提示，可以方便编写“.gitignore”以调整规则。</p> <p>小结，涉及“.gitignore”的知识点有：</p> <ul><li>在工作区内添加一个文本文件“.gitignore”，可用来定义不需要版本管理的文件过滤规则。此“.gitignore”文件本身可被添加到版本库中。</li> <li>强制添加某文件到暂存区，增加一个“-f”选项： <code>git add -f &lt;file&gt;</code></li> <li>对发生过滤的文件，检查生效的过滤规则： <code>git check-ignore -v &lt;file&gt;</code></li> <li>“.gitignore”的模板大集合： https://github.com/github/gitignore</li></ul> <h5 id="_10）git-学习资料"><a href="#_10）git-学习资料" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_10%EF%BC%89git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>10）Git 学习资料</h5> <p>以上简要介绍了 Git 的基本命令行操作，方便读者理解 Git 的工作原理，足以应付常见的版本控制使用场景。当然，还有很多实用的命令未覆盖到，建议有兴趣深入的读者继续阅读 Git 官方的用户手册或免费电子书《ProGit》。</p> <ul><li>Git User Manual https://git-scm.com/docs/user-manual.html</li> <li>ProGit，2nd Edition (2014) https://git-scm.com/book/en/v2</li></ul> <h3 id="_4-2-安装-git-客户端"><a href="#_4-2-安装-git-客户端" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-2-%E5%AE%89%E8%A3%85-git-%E5%AE%A2%E6%88%B7%E7%AB%AF" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.2 安装 Git 客户端</h3> <p>我们可以自己搭建私有的分布式版本控制系统，也可以使用现成的云平台，这些云平台提供不同付费等级的服务，有免费的，适用于个人或小团队，也有收费的，适用于企业。直接使用这些云平台比自建更有优势，本文将采用直接使用免费的 GitLab 云平台。</p> <p>知名的免费 Git 托管服务网站有：</p> <ul><li>GitLab, 支持免费的公开和私有代码库，适合个人和小团队使用。 https://gitlab.com/</li> <li>Bitbucket，支持免费的公开和私有代码库，适合个人和小团队使用。 https://bitbucket.org/</li> <li>GitHub，仅支持免费的公开代码库（私有代码库要收费），已经被微软收购。 https://github.com/</li></ul> <p>Windows 操作系统上知名的免费 Git 图形界面客户端有：</p> <ul><li>TortoiseGit, https://tortoisegit.org/</li> <li>SourceTree, https://www.sourcetreeapp.com/</li></ul> <p>本文将只使用 Windows 操作系统上的 TortoiseGit 作为客户端，配合使用 GitLab 代码托管服务。按以下步骤安装客户端：</p> <ol><li>在 GitLab 上注册账号。注意，GitLab 新用户注册时使用了 Google 提供的 reCAPTCHA 服务，用以验证真人，因此在国内的网络上是无法注册的。不过注册好账号之后，在国内的网络上使用 GitLab 不会受影响。</li> <li>安装 Git for Windows（网址是 https://git-for-windows.github.io/）。如果你已经安装了，可以跳过这一步。 提示：如果不用它自带的命令行方式工作（仅使用 TortoiseGit 的图形界面），可以不选择 “Shell Integration”，以避免点击鼠标右键出现菜单项过多的问题。</li> <li>安装 TortoiseGit，选择默认安装选项即可。安装完后，可以设置您的用户名和电子邮件。</li> <li>如果您还没有密钥对，可以用 Puttygen.exe 生成您的密钥对，私钥保存在本地，公钥配置到 GitLab 上您的账号里。</li> <li>在 GitLab 上创建一个测试用的项目，以验证一切工作正常。</li></ol> <p>例如，在 TortoiseGit 中设置用户名和电子邮件，如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/Settings_TortoiseGit.png" alt="Settings_TortoiseGit"></p> <p>图4.2.1 TortoiseGit 的配置</p> <p>安装设置完后，在 %USERPROFILE% 文件夹里，会出现一个配置文件“.gitconfig”，它们存储了 Git 的相关配置信息。</p> <p>另外，在 Windows 的 “Credential Manager” 里，会留存登录网站的用户名和密码信息。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/Windows_Credential_Manager.png" alt="Windows_Credential_Manager"></p> <p>图4.2.2 Windows 的 Credential Manager 的用户名和密码</p> <p>如果登录信息（用户名和密码）输入错误，则可删除这个留存的记录，再次尝试将会提示重新输入用户名和密码。</p> <h3 id="_4-3-git-分支模型"><a href="#_4-3-git-分支模型" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-3-git-%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.3 Git 分支模型</h3> <p>Git 的使用并不难，难点是实际开发过程中采用的分支模型和发布管理流程。</p> <p>《一个成功的Git分支开发模型》是发表于2010年关于此内容的一篇有影响力的博文，原文请参考 A successful Git branching model（网址是 https://nvie.com/posts/a-successful-git-branching-model/）， 以下将对这篇文章主要内容做一诠释。</p> <p>如下图所示，用 Git 建立了一个用于代码版本控制的仓库（repository）。这个仓库是中心版本库（因为 Git 是一个分布式版本管理系统，从技术上来讲，并没有一个中心版本库），我们把这个版本库称为原始库（origin），这个名字很容易理解。</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/centr-decentr@2x_chs.png" alt="centr-decentr-chs"></p> <p>图4.2.1 代码版本控制仓库</p> <p>所有的开发者都从 origin 拉取（pull）代码或者上传（push）代码。但是除了向中央仓库进行的 push 和 pull 操作外，每个开发者都有可能从其他开发者那里拉取代码变更，形成子团队。在两个或者更多的开发者需要协作开发一个较大的新功能特性的情况下，可以避免将个人不成熟的代码直接推向 origin。例如在上图中，alice 和 bob，alice 和 david，clair 和 david 分别形成了三个子团队。</p> <p>从技术上讲，这不过是 alice 定义了一个 Git 远程仓库，指向了 bob 的仓库而已，反之亦然。</p> <h4 id="_4-3-1-主要分支"><a href="#_4-3-1-主要分支" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-3-1-%E4%B8%BB%E8%A6%81%E5%88%86%E6%94%AF" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.3.1 主要分支</h4> <p>中心仓库有两个主要分支：master 分支和 develop 分支（也有人将它命名为 dev 分支），它们贯穿于整个开发过程的始终。</p> <p>我们把 origin/master 作为主要分支，在这个分支上，源代码的 HEAD 指针总是指向一个稳定的可发布的版本。该分支也被称为“集成分支”，它是每晚自动构建的代码来源地。</p> <p>当 develop 分支达到了一个稳定待发布状态时，所有的代码变更将合并到 master 分支，并且打上发布版本号的标签（Tag）。</p> <p>因此，只要是有变化合并到 master 分支上时，就应该有一个新版本要发布。于是每当 master 分支上有一个提交（commit），就可以用 Git 钩子（hook）脚本来执行自动构建，然后发布到生产环境上。</p> <p>主要分支情况如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/main-branches@2x_chs.png" alt="main-branches-chs"></p> <p>图4.2.2 主要分支</p> <h4 id="_4-3-2-辅助分支"><a href="#_4-3-2-辅助分支" class="header-anchor">#</a> <a href="https://cloudappdev.netlify.app/book/content.html#_4-3-2-%E8%BE%85%E5%8A%A9%E5%88%86%E6%94%AF" target="_blank" rel="noopener noreferrer">#<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>4.3.2 辅助分支</h4> <p>在 master 分支和 develop 分支的基础上，我们添加了一系列辅助分支来实现平行开发、新功能特性的开发、新发行版本的准备、以及紧急 Bug 的快速修复等实际问题。和主要分支不同的是，这些辅助分支都是临时的，因为它们在使用完毕后最终都要被删除。</p> <p>辅助分支有三个：feature 分支、release 分支，和 hotfix 分支。</p> <p>每一个辅助分支都有其特定的目的和用途，且这些辅助分支是从哪个分支开始产生，又最终将合并到哪些分支，都有严格的规定。从技术角度来说，这些辅助分支都是简单的 Git 分支，并没有什么特别的，只是根据用途来进行分类而已。</p> <p><strong>1）feature 分支</strong></p> <ul><li>可能从哪个分支分叉： develop</li> <li>最终必须合并到哪个分支： develop</li> <li>此分支的命名规范： 除了 master、develop、release-* 或者 hotfix-* 之外的任何名字</li></ul> <p>feature（功能）分支有时被称为话题分支（topic branch），是为开发新功能特性所准备的，可以是近期（即将发布）或远期（较为遥远的将来发布）。当我们刚开始开发一个新功能特性时，可能并不知道这个功能特性将要放到哪一个目标发行版本里。只要这个功能特性还在开发，这个 feature 分支就会一直存在下去，直到最终开发完成被合并到 develop 分支上（它将保证这个新功能特性会被加入到下一个发行版里），或者最终被放弃（这个新功能特性只是一次失败的尝试罢了）。</p> <blockquote><p><strong>注意：</strong> feature 分支只存在于开发者的本地仓库里，而不会是在 origin 里。也就是说，开发者只在本地创建 feature 分支，开发完成之后要么合并到 develop 分支，要么被丢弃。</p></blockquote> <p>feature 分支如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/fb@2x_chs.png" alt="feature-branches-chs"></p> <p>图4.2.3 feature 分支</p> <p><strong>2）release 分支</strong></p> <ul><li>可能从哪个分支分叉： develop</li> <li>最终必须合并到哪个分支： develop 和 master</li> <li>此分支的命名规范： release-*</li></ul> <p>release （发布）分支是为一个新发行版做准备用的。在这个分支上做最后的细节修饰工作，同时也为小 Bug 的修复，准备版本号和构建日期等留有余地。在 release 分支上完成这些工作，将会让 develop 分支保持干净，为下一个大版本开发做好准备。</p> <p>那么，何时从 develop 分支分叉出一个新的 release 分支呢？建议是当 develop 分支呈现出或者近乎呈现出一个新发行版本的理想状态时。此时新发行版本所必须具备的全部功能特性都已经被合并到 develop 分支上了，而为未来发行版本准备的功能特性不会被合并，它们必须要等到该版本对应的 release 分支被分叉出来时再合并。</p> <p>正式创建 release 分支时，将为此发行版分配一个版本号。那时，develop 分支将继续为下一个发行版工作，只是并不清楚这“下一个发行版”最终会是0.3版本还是1.0版本，直到创建新的 release 分支时才能确定。总之，发行版本号是在创建 release 分支时开始确定的，并且会随着版本的更新贯穿项目的始终。</p> <p><strong>3）hotfix 分支</strong></p> <ul><li>可能从哪个分支分叉： master</li> <li>最终必须合并到哪个分支： develop 或 master</li> <li>此命分支的命名规范： hotfix-*</li></ul> <p>在为新发行版做准备的角度上，hotfix （修补）分支和 release 分支非常相似，只不过 hotfix 分支的出现是非计划的，临时出现的。当生产环境上的发行版不理想或者一个重要的 Bug 需要紧急修复时，我们可以从打上了对应标签的 master 分支上分叉出来一个 hotfix 分支。这个操作的作用在于，当一些成员在进行 Bug 修复时，团队的其他成员基于 develop 分支的工作还可以继续，不受打扰。</p> <p>hotfix 分支可以从 master 分支上创建。比如说，“1.2”版本是目前正在生产环境中的发行版，出于一个严重的 Bug 需要立刻修复。但是 在develop 分支上的功能还不是很稳定，于是我们将从 master 分支上分叉出 hotfix 分支来修复。当我们完成 Bug 修复后，这些修改需要被合并到 master 分支，同时也需要被合并到 develop 分支，因为我们需要让接下来的发行版本也包含这个 Bug 修复。这个过程和 release 分支是非常相似的，如下图所示：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/hotfix-branches@2x_chs.png" alt="hotfix-branches-chs"></p> <p>图4.2.4 hotfix 分支</p> <p>以上提供了一个让开发者容易理解的 Git 版本控制分支模型与发布流程。</p> <p>完整的分支模型与发布流程汇总如下图：</p> <p><img src="https://cloudappdev.netlify.app/book/img/git/git-model@2x_chs.png" alt="git-model-chs"></p> <p>图4.2.5 完整的分支模型</p> <p>通常情况下：</p> <ul><li>master 和 develop 两个分支同时存在。</li> <li>master 分支上始终是最稳定的代码（随时可以发布到生产环境），develop 分支是正在开发的代码。</li> <li>feature 分支是某个开发者为了自己开发的功能在本地创建的临时分支。</li> <li>release 分支是为某个发行版而创建的临时分支。</li></ul> <p>特殊情况下：</p> <ul><li>develop 分支正在开发，如果生产环境上有突发情况需要紧急修复 Bug，则可以从 master 上新开一个 hotfix 分支，改好之后再将此 hotfix 分支分别合并到其他分支</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/baodian/high/notes/bd3.html" class="prev">
+        云应用案例
+      </a></span> <span class="next"><a href="/blog/baodian/high/notes/bd5.html">
+        自动化测试
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.9a92af54.js" defer></script><script src="/blog/assets/js/2.55a7f47e.js" defer></script><script src="/blog/assets/js/15.66ad0d4a.js" defer></script>
+  </body>
+</html>
